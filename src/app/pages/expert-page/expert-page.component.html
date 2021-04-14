@@ -1,1 +1,12 @@
-<p>expert-page works!</p>
+<h1>
+  Lista Expertos
+</h1>
+
+<div>
+  <h2 *ngIf="expert">
+    {{expert.value}}
+  </h2>
+  <button (click)='obtenerLista()'>
+    Obtener Lista Expertos
+  </button>
+</div>
