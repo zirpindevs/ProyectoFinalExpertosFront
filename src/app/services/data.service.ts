@@ -24,8 +24,8 @@ export class DataService {
        return this.http.get(baseURL);
   }
 
-  searchByName(name: String): Observable<any> {
-    return this.http.get(`${baseURL}/name=${name}`);
+  searchById(id: String): Observable<any> {
+    return this.http.get(`${baseURL}/${id}`);
   }
 
   createEmployee(expert: Expert): Promise<Array<Expert>> {

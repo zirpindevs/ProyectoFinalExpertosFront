@@ -24,15 +24,19 @@
   <input
     type="text"
     class="form-control"
-    placeholder="Search by name"
+    placeholder="buscar por id"
     [(ngModel)]="name"/>
   <div class="input-group-append">
     <button
       class="btn btn-outline-secondary"
       type="button"
-      (click)="searchByName()"
+      (click)="buscarPorId()"
     >
       Search
     </button>
   </div>
+  <h3>
+    {{experts.name}}   {{experts.surname}}   {{experts.nif}}   {{experts.cursos}}   {{experts.estado}}
+
+  </h3>
 </div>

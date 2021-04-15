@@ -43,8 +43,8 @@ export class ExpertPageComponent implements OnInit {
     })
   }
 
-  searchByName(): void {
-    this.dataService.searchByName(this.name)
+  buscarPorId(): void {
+    this.dataService.searchById(this.name)
       .subscribe(
         experts => {
           this.experts = experts;
