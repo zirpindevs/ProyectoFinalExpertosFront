@@ -1,1 +1,46 @@
-<p>tag-page works!</p>
+<h1>
+  Lista Tareas
+</h1>
+
+
+<button (click)='obtenerLista()'>
+  Obtener Lista de Tareas
+</button>
+
+<div style="padding: 13px;">
+  <span *ngIf="tags.length === 0"></span>
+
+  <li *ngFor="let tag of tags" style="margin-top:11px;">
+<h2 *ngIf="tag">
+  {{tag.name}}   {{tag.surname}}   {{tag.nif}}   {{tag.cursos}}   {{tag.estado}}
+
+</h2>
+  </li>
+
+
+</div>
+
+<div class="input-group mb-4">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="buscar por id"
+    [(ngModel)]="id"/>
+  <div class="input-group-append">
+    <button
+      class="btn btn-outline-secondary"
+      type="button"
+      (click)="buscarTagPorId()">
+      Buscar
+    </button>
+    <button
+    class="btn btn-outline-secondary"
+    type="button"
+    (click)="borrarTagPorId()">
+    Borrar
+  </button>
+  </div>
+  <h3>
+    {{tags.id}}  {{tags.name}}   {{tags.created_date}}
+  </h3>
+</div>
