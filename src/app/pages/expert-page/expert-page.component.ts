@@ -10,7 +10,6 @@ import { FormGroup, FormBuilder, FormControl, Validators, FormsModule} from '@an
 })
 export class ExpertPageComponent implements OnInit {
 
-  // Frase que se obtiene de la API Restful de ChuckNorris
   experts: any = {
     id: '',
     name: '',
@@ -25,7 +24,8 @@ export class ExpertPageComponent implements OnInit {
   };
 
   name = '';
-
+  currentexpert = null;
+  message = '';
   // experts = [];
 
   constructor(private dataService: DataService) { }
@@ -54,5 +54,4 @@ export class ExpertPageComponent implements OnInit {
           console.log(error);
         });
   }
-
 }
