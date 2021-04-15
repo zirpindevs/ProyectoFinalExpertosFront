@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
+import { FormGroup, FormBuilder, FormControl, Validators, FormsModule} from '@angular/forms';
+
 
 @Component({
   selector: 'app-expert-page',
@@ -9,7 +11,7 @@ import { DataService } from 'src/app/services/data.service';
 export class ExpertPageComponent implements OnInit {
 
   // Frase que se obtiene de la API Restful de ChuckNorris
-  expert: any = {
+  experts: any = {
     id: '',
     name: '',
     surname: '',
@@ -18,19 +20,39 @@ export class ExpertPageComponent implements OnInit {
     condiciones: '',
     estado: '',
     disponibilidad: '',
+    createDate: '',
     tags: []
   };
+
+  name = '';
+
+  // experts = [];
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+
   }
 
   // Método para obtener una frase de la API Restful
   // a través del servicio de DataService
   obtenerLista() {
-    this.dataService.obtenerListaExpertos().subscribe((response) => {
-      this.expert = response;
+    this.dataService.findAll().subscribe((experts: any)=>{
+      console.log(experts);
+      this.experts = experts;
     })
   }
+
+  searchByName(): void {
+    this.dataService.searchByName(this.name)
+      .subscribe(
+        experts => {
+          this.experts = experts;
+          console.log(experts);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
 }

@@ -2,11 +2,37 @@
   Lista Expertos
 </h1>
 
-<div>
-  <h2 *ngIf="expert">
-    {{expert.value}}
-  </h2>
-  <button (click)='obtenerLista()'>
-    Obtener Lista Expertos
-  </button>
+
+<button (click)='obtenerLista()'>
+  Obtener Lista Expertos
+</button>
+
+<div style="padding: 13px;">
+  <span *ngIf="experts.length === 0"></span>
+
+  <li *ngFor="let expert of experts" style="margin-top:11px;">
+<h2 *ngIf="expert">
+  {{expert.name}}   {{expert.surname}}   {{expert.nif}}   {{expert.cursos}}   {{expert.estado}}
+
+</h2>
+  </li>
+
+
+</div>
+
+<div class="input-group mb-4">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search by name"
+    [(ngModel)]="name"/>
+  <div class="input-group-append">
+    <button
+      class="btn btn-outline-secondary"
+      type="button"
+      (click)="searchByName()"
+    >
+      Search
+    </button>
+  </div>
 </div>
