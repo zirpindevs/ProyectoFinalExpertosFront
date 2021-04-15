@@ -23,7 +23,7 @@ export class ExpertPageComponent implements OnInit {
     tags: []
   };
 
-  name = '';
+  id = 0;
   currentexpert = null;
   message = '';
   // experts = [];
@@ -44,7 +44,7 @@ export class ExpertPageComponent implements OnInit {
   }
 
   buscarPorId(): void {
-    this.dataService.searchById(this.name)
+    this.dataService.searchById(this.id)
       .subscribe(
         experts => {
           this.experts = experts;
@@ -54,4 +54,17 @@ export class ExpertPageComponent implements OnInit {
           console.log(error);
         });
   }
+
+  borrarPorId(): void {
+    this.dataService.deleteById(this.id)
+      .subscribe(
+        experts => {
+          this.experts = experts;
+          console.log(experts);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
 }

@@ -24,9 +24,15 @@ export class DataService {
        return this.http.get(baseURL);
   }
 
-  searchById(id: String): Observable<any> {
+  searchById(id: number): Observable<any> {
     return this.http.get(`${baseURL}/${id}`);
   }
+
+
+  deleteById(id: number): Observable<any> {
+    return this.http.delete(`${baseURL}/${id}`);
+  }
+
 
   createEmployee(expert: Expert): Promise<Array<Expert>> {
     let empHeaders = new Headers({ 'Content-Type': 'application/json' });
@@ -41,13 +47,8 @@ export class DataService {
       return this.http.put(`${baseURL}/${id}`, data);
     }
 
-    delete(id: number): Observable<any> {
-      return this.http.delete(`${baseURL}/${id}`);
-    }
 
-    deleteAll(): Observable<any> {
-      return this.http.delete(baseURL);
-    }
+
 
     private handleError(error: any): Promise<Array<any>> {
       console.error('An error occurred', error);
