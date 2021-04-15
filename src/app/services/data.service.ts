@@ -3,13 +3,12 @@ import { HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Expert} from "../models/expert/expert.model"
 
+const baseURL = 'http://localhost:8080/api/experts';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  private baseURL = 'http//localhost:8080/api/experts';
-
   constructor(private http: HttpClient) { }
 
     /**
@@ -22,27 +21,36 @@ export class DataService {
     // }
 
   findAll(){
-       return this.http.get('http://localhost:8080/api/experts');
-  }
-
-  findByName(name: String){
-    return this.http.get('http://localhost:8080/api/experts/name');
+       return this.http.get(baseURL);
   }
 
   searchByName(name: String): Observable<any> {
-    return this.http.get(`http://localhost:8080/api/experts/name/${name}`);
+    return this.http.get(`${baseURL}/name=${name}`);
   }
 
   createEmployee(expert: Expert): Promise<Array<Expert>> {
     let empHeaders = new Headers({ 'Content-Type': 'application/json' });
-    return this.http.post('http://localhost:8080/api/experts/', JSON.stringify(expert))
+    return this.http.post(`${baseURL}`, JSON.stringify(expert))
     .toPromise()
     .then(response => response as Expert[])
     .catch(this.handleError);
     }
 
-  private handleError(error: any): Promise<Array<any>> {
-    console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
+
+    update(id: number, data: any): Observable<any> {
+      return this.http.put(`${baseURL}/${id}`, data);
     }
+
+    delete(id: number): Observable<any> {
+      return this.http.delete(`${baseURL}/${id}`);
+    }
+
+    deleteAll(): Observable<any> {
+      return this.http.delete(baseURL);
+    }
+
+    private handleError(error: any): Promise<Array<any>> {
+      console.error('An error occurred', error);
+      return Promise.reject(error.message || error);
+      }
 }
