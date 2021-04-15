@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Expert} from "../models/expert/expert.model"
 
-const baseURL = 'http://localhost:8080/api/experts';
+const baseURL = 'http://localhost:8080/api/expertos';
 
 @Injectable({
   providedIn: 'root'
