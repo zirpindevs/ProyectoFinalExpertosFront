@@ -14,7 +14,6 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ExpertPageComponent } from './pages/expert-page/expert-page.component';
 import { TagPageComponent } from './pages/tag-page/tag-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { DataService } from './services/data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -25,9 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomePageComponent,
     ExpertPageComponent,
     TagPageComponent,
-    LoginPageComponent,
-    RegisterPageComponent
-  ],
+    LoginPageComponent
+    ],
   imports: [
     BrowserModule,
     HttpClientModule,

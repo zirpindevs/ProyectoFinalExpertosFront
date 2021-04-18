@@ -1,12 +1,22 @@
 table {
   width: 100%;
+  position: absolute;
+  left: 150px;
+
 }
 
 .mat-form-field {
-  font-size: 14px;
-  width: 100%;
+  font-size: 5px;
+  width: 150%;
 }
 
 td, th {
-  width: 25%;
+  width: 10%;
+}
+
+.mat-paginator{
+  width: 50%;
+  position: absolute;
+  left: 150px;
+  bottom: 150px;
 }

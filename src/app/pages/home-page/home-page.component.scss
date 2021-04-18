@@ -1,6 +1,12 @@
-.example-container {
-  width: 800px;
-  height: 600px;
-  margin: 20px;
-  border: 1px solid #FFFFFF;
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
 }
+
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+

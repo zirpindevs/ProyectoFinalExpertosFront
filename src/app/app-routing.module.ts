@@ -3,14 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { ExpertPageComponent } from './pages/expert-page/expert-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { TagPageComponent } from './pages/tag-page/tag-page.component';
 
 const routes: Routes = [
   {
     path: '', // http:localhost:4200/
     pathMatch: 'full',
-    redirectTo: '/experts'
+    redirectTo: '/expertos'
   },
   {
     path: 'home', // http:localhost:4200/home
@@ -21,15 +20,11 @@ const routes: Routes = [
     component: LoginPageComponent
   },
   {
-    path: 'register', // http:localhost:4200/register
-    component: RegisterPageComponent
-  },
-  {
-    path: 'experts',  // http:localhost:4200/experts
+    path: 'expertos',  // http:localhost:4200/expertos
     component: ExpertPageComponent,
   },
   {
-    path: 'tags',  // http:localhost:4200/tags
+    path: 'etiquetas',  // http:localhost:4200/etiquetas
     component: TagPageComponent,
   }
 ];
