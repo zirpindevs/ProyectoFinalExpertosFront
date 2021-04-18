@@ -13,6 +13,7 @@ import { TagPageComponent } from './pages/tag-page/tag-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { DataService } from './services/data.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { DataService } from './services/data.service';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
