@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, FormControl, Validators, FormsModule} from '@an
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import { Router } from '@angular/router';
 import { Expert } from 'src/app/models/expert/expert.model';
 @Component({
   selector: 'app-expert-page',
@@ -45,7 +46,7 @@ export class ExpertPageComponent implements OnInit {
   pageSizeOptions = [5, 10, 25];
   showFirstLastButtons = true;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private router: Router) {
 
     //const users = Array.from({length: 100}, (_, k) => this.createNewUser(k + 1));
 
@@ -144,6 +145,11 @@ export class ExpertPageComponent implements OnInit {
       console.error('Request completed')      //This is actually not needed
       this.loading = false;
     })
+  }
+
+  editContact(expert: Expert) {
+    let route = '/expertos/edit-experto';
+    this.router.navigate([route], { queryParams: { id: this.experts.id } });
   }
 
   buscarPorId(): void {
