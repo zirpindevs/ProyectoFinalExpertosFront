@@ -10,7 +10,7 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Name</mat-label>
-    <select matNativeControl (change)="filtrarEstado($event)">Estado
+    <select matNativeControl (change)="filtrarEstado($event)" #select>Estado
       <option value="validado">Validado</option>
       <option value="pendiente">Pendiente</option>
       <option value="descartado">Descartado</option>
@@ -71,17 +71,18 @@
       </ng-container>
   <!-- Row shown when there is no matching data. -->
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        <td class="mat-cell" colspan="4">No se encuentran datos con los filtros seleccionados"{{input.value}} {{select.value}}"</td>
       </tr>
   </table>
 
-  <mat-paginator
-    (page)="handlePageEvent($event)"
-    [length]="length"
-    [pageSize]="pageSize"
-    [showFirstLastButtons]="showFirstLastButtons"
-    [pageSizeOptions]="pageSizeOptions"
-    [pageIndex]="pageIndex">
-  </mat-paginator>
-
+    <div>
+      <mat-paginator
+        (page)="handlePageEvent($event)"
+        [length]="length"
+        [pageSize]="pageSize"
+        [showFirstLastButtons]="showFirstLastButtons"
+        [pageSizeOptions]="pageSizeOptions"
+        [pageIndex]="pageIndex">
+      </mat-paginator>
+  </div>
 </div>
