@@ -20,11 +20,17 @@ export class DataService {
     //   return this.http.get('http://localhost:8080/api/experts');
     // }
 
-  findAll(limite :number): Observable<any> {
-       return this.http.get(baseURL + '?limite=' + String(limite));
+  findAll(name: string, limite :number): Observable<any> {
+       return this.http.get(baseURL + '?nombre='+name+'&limite=' + String(limite));
       //  return this.http.get(baseURL);
 
   }
+
+  findAllEstado(estado: string, limite :number): Observable<any> {
+    return this.http.get(baseURL + '?estado='+estado+'&limite=' + String(limite));
+   //  return this.http.get(baseURL);
+
+}
 
   searchById(id: number): Observable<any> {
     return this.http.get(`${baseURL}/${id}`);

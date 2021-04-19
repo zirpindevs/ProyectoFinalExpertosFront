@@ -1,23 +1,34 @@
 <h3 style="text-align: left;"> Lista Expertos</h3>
 
-
-<!-- <mat-form-field>
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-</mat-form-field> -->
-
 <div class="mat-elevation-z8">
+
+  <div>
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input matInput (keyup)="filtrarNombre($event)" placeholder="name" #input>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <select matNativeControl (change)="filtrarEstado($event)">Estado
+      <option value="validado">Validado</option>
+      <option value="pendiente">Pendiente</option>
+      <option value="descartado">Descartado</option>
+    </select>
+  </mat-form-field>
+</div>
 
   <table mat-table [dataSource]="experts" matSort>
 
     <!-- ID Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+
       <td mat-cell *matCellDef="let row"> {{row.id}} </td>
     </ng-container>
   <!-- Name Column -->
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre</th>
     <td mat-cell *matCellDef="let row"> {{row.name}} </td>
   </ng-container>
 
@@ -58,12 +69,10 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Tareas </th>
         <td mat-cell *matCellDef="let row" [style.color]="row"  > {{row.tags[0].name}} </td>
       </ng-container>
-
-    <!-- Row shown when there is no matching data. -->
-    <!-- <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-    </tr> -->
-
+  <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
   </table>
 
   <mat-paginator
@@ -76,8 +85,3 @@
   </mat-paginator>
 
 </div>
-
-
-
-
-
