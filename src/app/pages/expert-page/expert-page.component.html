@@ -1,50 +1,5 @@
-<h1>
-  Lista Expertos
-</h1>
+<h3 style="text-align: left;"> Lista Expertos</h3>
 
-
-<!-- <button (click)='obtenerLista()'>
-  Obtener Lista Expertos
-</button>
-
-<div style="padding: 13px;">
-  <span *ngIf="experts.length === 0"></span>
-
-  <li *ngFor="let expert of experts" style="margin-top:11px;">
-<h2 *ngIf="expert">
-  {{expert.name}}   {{expert.surname}}   {{expert.nif}}   {{expert.cursos}}   {{expert.estado}}
-
-</h2>
-  </li>
-
-
-</div>
-
-<div class="input-group mb-4">
-  <input
-    type="text"
-    class="form-control"
-    placeholder="buscar por id"
-    [(ngModel)]="id"/>
-  <div class="input-group-append">
-    <button
-      class="btn btn-outline-secondary"
-      type="button"
-      (click)="buscarPorId()">
-      Buscar
-    </button>
-    <button
-    class="btn btn-outline-secondary"
-    type="button"
-    (click)="borrarPorId()">
-    Borrar
-  </button>
-  </div>
-  <h3>
-    {{experts.name}}   {{experts.surname}}   {{experts.nif}}   {{experts.cursos}}   {{experts.estado}}
-
-  </h3>
-</div> -->
 
 <!-- <mat-form-field>
   <mat-label>Filter</mat-label>
@@ -110,15 +65,18 @@
     </tr> -->
 
   </table>
-</div>
-<mat-paginator
+
+  <mat-paginator
     (page)="handlePageEvent($event)"
     [length]="length"
     [pageSize]="pageSize"
     [showFirstLastButtons]="showFirstLastButtons"
     [pageSizeOptions]="pageSizeOptions"
     [pageIndex]="pageIndex">
-</mat-paginator>
+  </mat-paginator>
+
+</div>
+
 
 
 
