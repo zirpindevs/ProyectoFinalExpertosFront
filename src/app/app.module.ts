@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule} from '@angular/forms';
 
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table';
@@ -31,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    MatFormFieldModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatTableModule,

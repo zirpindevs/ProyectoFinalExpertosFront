@@ -52,6 +52,7 @@
 </mat-form-field> -->
 
 <div class="mat-elevation-z8">
+
   <table mat-table [dataSource]="experts" matSort>
 
     <!-- ID Column -->
@@ -98,18 +99,27 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
     <!-- Tareas Column -->
-      <!-- <ng-container matColumnDef="tags">
+      <ng-container matColumnDef="etiquetas" >
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Tareas </th>
-        <td mat-cell *matCellDef="let row" [style.color]="row"> {{row.tags}} </td>
-      </ng-container> -->
+        <td mat-cell *matCellDef="let row" [style.color]="row"  > {{row.tags[0].name}} </td>
+      </ng-container>
 
     <!-- Row shown when there is no matching data. -->
     <!-- <tr class="mat-row" *matNoDataRow>
       <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
     </tr> -->
-  </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </table>
 </div>
+<mat-paginator
+    (page)="handlePageEvent($event)"
+    [length]="length"
+    [pageSize]="pageSize"
+    [showFirstLastButtons]="showFirstLastButtons"
+    [pageSizeOptions]="pageSizeOptions"
+    [pageIndex]="pageIndex">
+</mat-paginator>
+
+
 
 

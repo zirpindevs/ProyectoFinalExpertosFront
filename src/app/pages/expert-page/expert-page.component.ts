@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { FormGroup, FormBuilder, FormControl, Validators, FormsModule} from '@angular/forms';
 import {MatTableDataSource} from '@angular/material/table';
-import {MatPaginator} from '@angular/material/paginator';
+import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 
 export interface UserData {
@@ -29,7 +29,7 @@ const NAMES: string[] = [
 })
 export class ExpertPageComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'surname', 'nif', 'cursos', 'disponibilidad', 'estado'];
+  displayedColumns: string[] = ['id', 'name', 'surname', 'nif', 'cursos', 'disponibilidad', 'estado', 'etiquetas'];
   dataSource: MatTableDataSource<UserData>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -53,12 +53,21 @@ export class ExpertPageComponent implements OnInit {
   message = '';
   // experts = [];
 
+  loading: boolean = false;
+  errorMessage = "";
+
+  length = 25;
+  pageSize = 10;
+  pageIndex = 0;
+  pageSizeOptions = [5, 10, 25];
+  showFirstLastButtons = true;
+
   constructor(private dataService: DataService) {
 
     //const users = Array.from({length: 100}, (_, k) => this.createNewUser(k + 1));
 
     this.obtenerLista();
-     this.dataSource = new MatTableDataSource(this.experts);
+    //  this.dataSource = new MatTableDataSource(this.experts);
    }
 
   ngOnInit(): void {
@@ -66,6 +75,14 @@ export class ExpertPageComponent implements OnInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+         this.dataSource = new MatTableDataSource(this.experts);
+
+  }
+
+  handlePageEvent(event: PageEvent) {
+      this.pageSize = event.pageSize;
+      this.pageIndex = event.pageIndex;
+      this.obtenerLista();
   }
 
   applyFilter(event: Event) {
@@ -93,9 +110,30 @@ export class ExpertPageComponent implements OnInit {
   // Método para obtener una frase de la API Restful
   // a través del servicio de DataService
   obtenerLista() {
-    this.dataService.findAll().subscribe((experts: any)=>{
-      console.log(experts);
-      this.experts = experts;
+    this.dataService.findAll(this.pageSize).subscribe((response)=>{
+      console.log('response received')
+      console.log(response);
+      this.experts = response;
+
+      //count number of objects
+      let count = 0;
+        for (const key in this.experts){
+        if (this.experts.hasOwnProperty(key)) {
+          count++;
+        }
+
+        this.length = count;
+      }
+
+    },
+    (error) => {                              //error() callback
+      console.error('Request failed with error')
+      this.errorMessage = error;
+      this.loading = false;
+    },
+    () => {                                   //complete() callback
+      console.error('Request completed')      //This is actually not needed
+      this.loading = false;
     })
   }
 

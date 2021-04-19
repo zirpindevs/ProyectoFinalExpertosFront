@@ -20,8 +20,10 @@ export class DataService {
     //   return this.http.get('http://localhost:8080/api/experts');
     // }
 
-  findAll(){
-       return this.http.get(baseURL);
+  findAll(limite :number): Observable<any> {
+       return this.http.get(baseURL + '?limite=' + String(limite));
+      //  return this.http.get(baseURL);
+
   }
 
   searchById(id: number): Observable<any> {
