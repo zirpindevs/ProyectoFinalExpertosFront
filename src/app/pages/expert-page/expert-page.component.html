@@ -23,8 +23,8 @@
     <!-- ID Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header > ID </th>
-      <td mat-cell *matCellDef="let row" (click)="editContact(row)">
-        <button mat-icon-button color="primary" (click)="editContact(row)" title="Edit Contact"><mat-icon>edit</mat-icon></button>
+      <td mat-cell *matCellDef="let row">
+        <button mat-raised-button color="success" routerLink='/expertos/:{{row.id}}' [state]="experts">Detalles</button>
 
         {{row.id}} </td>
     </ng-container>

@@ -1,1 +1,61 @@
-<p>expert-detail-page works!</p>
+
+<div style="text-align:center">
+  <h2>Informacion del Experto: {{expert.id}} </h2>
+
+  <div>
+    <button mat-raised-button color="primary" (click)="returnBack()">Volver a Lista de Expertos</button>
+  </div>
+
+  <h2>Nombre: {{expert.name}}  {{expert.surname}} </h2>
+  <h3>NIF: {{expert.nif}}</h3>
+  <h5>{{expert.createdDate}}</h5>
+
+
+
+<div>
+<a>Datos generales</a>
+
+<h3>
+  Disponibilidad :{{expert.disponibilidad}}
+  Estado: {{expert.estado}}
+  Valoracion: {{expert.puntuacion}}
+</h3>
+
+</div>
+
+<div style="position: absolute; left: 600px;">
+<a>Etiquetas</a>
+<table>
+  <tr *ngFor="let tag of tags">
+    <td>
+        <li>    {{tag.name}} </li>
+  </td>
+    </tr>
+</table></div>
+
+<div style="position: absolute; left: 350px;">
+  <a>Datos Contacto</a>
+
+  <li> Telefono: {{expert.telefono}}</li>
+ <li> Correo: {{expert.correo}}</li>
+ <li> Direccion: {{expert.direccion}}</li>
+
+</div>
+    <!-- <mat-form-field class="example-full-width">
+      <mat-label>nombre</mat-label>
+      <input matInput name="first_name" placeholder="nombre" [(ngModel)]="ExpertDetails.name">
+    </mat-form-field> -->
+
+
+
+  <!-- <mat-form-field class="example-full-width">
+    <mat-label>NIF:</mat-label>
+    <input matInput name="nif" placeholder="nif" [(ngModel)]="ExpertDetails.nif" />
+  </mat-form-field> -->
+
+
+
+    <div>
+      <!-- <button mat-raised-button color="success" routerLink='/expertos' [state]="expert">Volver Expertos</button> -->
+    </div>
+  </div>

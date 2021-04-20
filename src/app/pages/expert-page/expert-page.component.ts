@@ -24,6 +24,10 @@ export class ExpertPageComponent implements OnInit {
     name: '',
     surname: '',
     nif: '',
+    telefono: '',
+    email: '',
+    direccion: '',
+    puntuacion: '',
     cursos: '',
     condiciones: '',
     estado: '',
@@ -118,8 +122,6 @@ export class ExpertPageComponent implements OnInit {
   }
 
 
-    // Método para obtener una frase de la API Restful
-  // a través del servicio de DataService
   obtenerListaEstado(filter_estado :string) {
     this.dataService.findAllEstado(filter_estado, this.pageSize).subscribe((response)=>{
       console.log('response received')
@@ -148,8 +150,9 @@ export class ExpertPageComponent implements OnInit {
   }
 
   editContact(expert: Expert) {
-    let route = '/expertos/edit-experto';
-    this.router.navigate([route], { queryParams: { id: this.experts.id } });
+    console.log(this.experts.id);
+     let route = '/expertos/:';
+     this.router.navigate([route], { queryParams: { id: this.experts.id } });
   }
 
   buscarPorId(): void {
