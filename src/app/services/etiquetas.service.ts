@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Etiqueta } from '../models/etiqueta/etiqueta.model';
 
 
 const baseURLTag = 'http://localhost:8080/api/etiquetas';
@@ -25,5 +26,19 @@ searchTagById(id: number): Observable<any> {
 deleteTagById(id: number): Observable<any> {
  return this.http.delete(`${baseURLTag}/${id}`);
 }
+
+crearEtiqueta(etiqueta: Etiqueta): Promise<Array<Etiqueta>> {
+  let empHeaders = new Headers({ 'Content-Type': 'application/json' });
+  return this.http.post(`${baseURLTag}`, JSON.stringify(etiqueta))
+  .toPromise()
+  .then(response => response as Etiqueta[])
+  .catch(this.handleError);
+  }
+
+
+  private handleError(error: any): Promise<Array<any>> {
+    console.error('An error occurred', error);
+    return Promise.reject(error.message || error);
+    }
 
 }
