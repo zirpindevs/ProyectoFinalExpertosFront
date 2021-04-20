@@ -14,7 +14,8 @@ export class EtiquetasService {
   constructor(private http: HttpClient) { }
 
 
-findAllTags(){
+
+findAllTags(): Observable<any> {
     return this.http.get(baseURLTag);
 }
 
@@ -26,6 +27,7 @@ searchTagById(id: number): Observable<any> {
 deleteTagById(id: number): Observable<any> {
  return this.http.delete(`${baseURLTag}/${id}`);
 }
+
 
 crearEtiqueta(etiqueta: Etiqueta): Promise<Array<Etiqueta>> {
   let empHeaders = new Headers({ 'Content-Type': 'application/json' });
