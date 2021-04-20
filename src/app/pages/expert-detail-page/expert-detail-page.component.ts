@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router  } from '@angular/router';
 import { Location } from '@angular/common';
 import { DataService } from 'src/app/services/data.service';
+import { EtiquetasService } from 'src/app/services/etiquetas.service';
+
 
 import { Expert } from 'src/app/models/expert/expert.model';
 import { Etiqueta } from 'src/app/models/etiqueta/etiqueta.model';
@@ -14,10 +16,13 @@ import { Etiqueta } from 'src/app/models/etiqueta/etiqueta.model';
 export class ExpertDetailPageComponent implements OnInit {
 
 
-  // ID of the Contact, that comes from the URL Parms
+  // ID of the Expert, that comes from the URL Parms
   idExpert: string = '';
+
   expert: any;
-  tags: Etiqueta [] = [];
+  tags: any;
+  Listatags: any;
+
 
   loading: boolean = false;
   errorMessage = "";
@@ -48,7 +53,7 @@ export class ExpertDetailPageComponent implements OnInit {
    * @param activatedRoute --> The Active Route in that moment
    * @param router --> To navigate to another route
    */
-    constructor(private activatedRoute: ActivatedRoute, private router: Router, private location: Location, private dataService: DataService) { }
+    constructor(private activatedRoute: ActivatedRoute, private router: Router, private location: Location, private dataService: DataService, private etiquetaService: EtiquetasService) { }
 
     ngOnInit(): void {
 
@@ -57,6 +62,8 @@ export class ExpertDetailPageComponent implements OnInit {
       this.idExpert = this.activatedRoute.snapshot.params.id;
 
       this.obtenerUsuario(this.idExpert);
+      this.obtenerListaEtiquetas();
+
       }
 
 
@@ -81,12 +88,28 @@ export class ExpertDetailPageComponent implements OnInit {
         this.tags = this.expert.tags;
       },
       (error) => {                              //error() callback
-        console.error('Request failed with error')
+        console.error('Request expert failed with error')
         this.errorMessage = error;
         this.loading = false;
       },
       () => {                                   //complete() callback
-        console.error('Request completed')      //This is actually not needed
+        console.error('Request expert completed')      //This is actually not needed
+        this.loading = false;
+      })
+    }
+
+    obtenerListaEtiquetas(){
+        this.etiquetaService.findAllTags().subscribe((response)=>{
+        this.Listatags = response;
+        console.log(this.Listatags);
+      },
+      (error) => {                              //error() callback
+        console.error('Request tag failed with error')
+        this.errorMessage = error;
+        this.loading = false;
+      },
+      () => {                                   //complete() callback
+        console.error('Request tag completed')      //This is actually not needed
         this.loading = false;
       })
     }

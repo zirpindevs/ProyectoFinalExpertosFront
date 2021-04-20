@@ -23,6 +23,17 @@
 
 </div>
 
+
+
+<div style="position: absolute; left: 350px;">
+  <a>Datos Contacto</a>
+
+  <li> Telefono: {{expert.telefono}}</li>
+ <li> Correo: {{expert.correo}}</li>
+ <li> Direccion: {{expert.direccion}}</li>
+
+</div>
+
 <div style="position: absolute; left: 600px;">
 <a>Etiquetas</a>
 <table>
@@ -33,14 +44,17 @@
     </tr>
 </table></div>
 
-<div style="position: absolute; left: 350px;">
-  <a>Datos Contacto</a>
+<div style="position: absolute; left: 750px;">
+  <a>Lista de Etiquetas</a>
+<table>
+    <tr *ngFor="let listaTag of Listatags">
 
-  <li> Telefono: {{expert.telefono}}</li>
- <li> Correo: {{expert.correo}}</li>
- <li> Direccion: {{expert.direccion}}</li>
+      <td>
+        {{listaTag.name}}
+      </td>
+    </tr>
+  </table>
 
-</div>
     <!-- <mat-form-field class="example-full-width">
       <mat-label>nombre</mat-label>
       <input matInput name="first_name" placeholder="nombre" [(ngModel)]="ExpertDetails.name">
