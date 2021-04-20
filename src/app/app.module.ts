@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
+import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-detail-page.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {MatSelectModule} from '@angular/material/select';
     HomePageComponent,
     ExpertPageComponent,
     TagPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ExpertDetailPageComponent
     ],
   imports: [
     BrowserModule,
