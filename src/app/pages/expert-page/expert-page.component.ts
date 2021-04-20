@@ -33,6 +33,7 @@ export class ExpertPageComponent implements OnInit {
     estado: '',
     disponibilidad: '',
     createDate: '',
+    lastUpdate: '',
     tags: []
   };
 

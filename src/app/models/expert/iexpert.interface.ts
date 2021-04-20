@@ -12,4 +12,5 @@ export interface IExpert {
   disponibilidad: string;
   puntuacion: string;
   createdDeDate: string;
+  lastUpdate: String;
 }

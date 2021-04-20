@@ -13,10 +13,11 @@ export class Expert implements IExpert{
     estado: string;
     disponibilidad: string;
     createdDeDate: string;
+    lastUpdate: String;
     puntuacion: string;
 
     constructor(id: number, name: string, surname: string, nif: string, condiciones: number, cursos: string, estado: string,
-       disponibilidad: string,createdDeDate: string, telefono: number, email: string, direccion: string, puntuacion: string){
+       disponibilidad: string,createdDeDate: string, telefono: number, email: string, direccion: string, puntuacion: string, lastUpdate: String){
     this.id = id;
     this.name = name;
     this.surname = surname;
@@ -30,5 +31,6 @@ export class Expert implements IExpert{
     this.estado = estado;
     this.disponibilidad = disponibilidad;
     this.createdDeDate = createdDeDate;
+    this.lastUpdate = lastUpdate;
     }
 }
