@@ -19,6 +19,12 @@ findAllTags(): Observable<any> {
     return this.http.get(baseURLTag);
 }
 
+findAllTagsWithFilter(name: string, limite :number): Observable<any> {
+  return this.http.get(baseURLTag + '?nombre='+name+'&limite=' + String(limite));
+ //  return this.http.get(baseURL);
+
+}
+
 searchTagById(id: number): Observable<any> {
  return this.http.get(`${baseURLTag}/${id}`);
 }
