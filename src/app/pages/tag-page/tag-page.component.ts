@@ -64,7 +64,7 @@ export class TagPageComponent implements OnInit {
       .afterClosed()
       .subscribe((confirmado: Boolean) => {
         if (confirmado) {
-          this.etiquetaService.deleteTagById(tagToDelete.id);
+          this.etiquetaService.deleteTagById(Number(tagToDelete.id)).subscribe(() => console.log("user deleted"));;
           alert(" "+tagToDelete.name+" Borrada!");}
 
       });
