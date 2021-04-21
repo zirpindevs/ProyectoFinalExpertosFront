@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule} from '@angular/forms';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import {MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatSort, MatSortModule} from '@angular/material/sort';
@@ -14,6 +14,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -57,8 +58,9 @@ import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.
     MatInputModule,
     MatSelectModule,
     MatIconModule,
-    MatButtonModule
-  ],
+    MatButtonModule,
+    MatDialogModule
+   ],
   providers: [DataService],
   bootstrap: [AppComponent]
 })

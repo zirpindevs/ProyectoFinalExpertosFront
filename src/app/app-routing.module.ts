@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: '', // http:localhost:4200/
     pathMatch: 'full',
-    redirectTo: '/expertos'
+    redirectTo: '/home'
   },
   {
     path: 'home', // http:localhost:4200/home
