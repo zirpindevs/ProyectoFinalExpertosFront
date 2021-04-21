@@ -21,7 +21,7 @@ export class TagPageComponent implements OnInit {
 
 
   id = 0;
-  displayedColumns: string[] = ['id', 'name', 'createDate'];
+  displayedColumns: string[] = ['id', 'name', 'createDate', 'actions'];
   etiquetaSource: MatTableDataSource<Etiqueta>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
