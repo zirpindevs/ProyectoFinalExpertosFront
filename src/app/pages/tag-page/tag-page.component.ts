@@ -2,6 +2,7 @@ import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { Location } from '@angular/common';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
+import {MatDialog} from '@angular/material/dialog';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import { EtiquetasService } from 'src/app/services/etiquetas.service';
 import { Etiqueta } from 'src/app/models/etiqueta/etiqueta.model';
@@ -37,7 +38,7 @@ export class TagPageComponent implements OnInit {
   pageSizeOptions = [5, 10, 25];
   showFirstLastButtons = true;
 
-  constructor(private etiquetaService: EtiquetasService, private location: Location) {
+  constructor(private etiquetaService: EtiquetasService, private location: Location, public dialog: MatDialog) {
 
     this.obtenerListaEtiqueta("");
    }
@@ -51,6 +52,10 @@ export class TagPageComponent implements OnInit {
   ngAfterViewInit() {
     this.etiquetaSource.paginator = this.paginator;
     // this.etiquetaSource.sort = this.sort;
+  }
+
+  openDialog() {
+    this.dialog.open(DialogElementsExampleDialog);
   }
 
   // Método para obtener una frase de la API Restful
@@ -148,3 +153,9 @@ export class TagPageComponent implements OnInit {
   }
 
 }
+
+@Component({
+  selector: 'dialog-elements-example-dialog',
+  templateUrl: './dialog-elements-example-dialog.html',
+})
+export class DialogElementsExampleDialog {}
