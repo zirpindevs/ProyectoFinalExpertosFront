@@ -5,6 +5,8 @@ import { FormsModule} from '@angular/forms';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 
+
+import {MatButtonModule} from '@angular/material/button';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table';
@@ -55,6 +57,7 @@ import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.
     MatInputModule,
     MatSelectModule,
     MatIconModule,
+    MatButtonModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

@@ -46,6 +46,9 @@ export class ExpertDetailPageComponent implements OnInit {
         tags: []
     }
 
+    noName: string;
+    pagina: number;
+
     // Emisor de eventos que ejecutará un método en el padre
     @Output() cambiarContacto: EventEmitter<Expert> = new EventEmitter<Expert>();
 
@@ -100,7 +103,9 @@ export class ExpertDetailPageComponent implements OnInit {
     }
 
     obtenerListaEtiquetas(){
-        this.etiquetaService.findAllTags().subscribe((response)=>{
+        this.noName = "";
+        this.pagina = 500;
+        this.etiquetaService.findAllTagsWithFilter(this.noName, this.pagina).subscribe((response)=>{
         this.Listatags = response;
         console.log(this.Listatags);
       },
