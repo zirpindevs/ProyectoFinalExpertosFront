@@ -6,6 +6,7 @@ import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import { EtiquetasService } from 'src/app/services/etiquetas.service';
 import { Etiqueta } from 'src/app/models/etiqueta/etiqueta.model';
+import { TagDialogDeleteComponent } from "../tag-dialog-delete/tag-dialog-delete.component"
 
 @Component({
   selector: 'app-tag-page',
@@ -38,7 +39,7 @@ export class TagPageComponent implements OnInit {
   pageSizeOptions = [5, 10, 25];
   showFirstLastButtons = true;
 
-  constructor(private etiquetaService: EtiquetasService, private location: Location, public dialog: MatDialog) {
+  constructor(private etiquetaService: EtiquetasService, private location: Location, public dialogo: MatDialog) {
 
     this.obtenerListaEtiqueta("");
    }
@@ -54,14 +55,20 @@ export class TagPageComponent implements OnInit {
     // this.etiquetaSource.sort = this.sort;
   }
 
-  openDialog()
-   {
-    this.dialog.open(DialogElementsExampleDialog,{
-      data:{
-        id: this.tags
-      }
-        }
-      );
+
+  mostrarDialogo(): void {
+    this.dialogo
+      .open(TagDialogDeleteComponent, {
+        data: `¿Deseas borrar la etiqueta?`
+      })
+      .afterClosed()
+      .subscribe((confirmado: Boolean) => {
+        if (confirmado) {
+          alert("¡Tarea Borrada!");}
+        //  else {
+        //   alert("Cancelar");
+        // }
+      });
   }
 
   // Método para obtener una frase de la API Restful
