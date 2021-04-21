@@ -30,6 +30,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-detail-page.component';
 import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.component';
+import { TagDialogDeleteComponent } from './pages/tag-dialog-delete/tag-dialog-delete.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.
     TagPageComponent,
     LoginPageComponent,
     ExpertDetailPageComponent,
-    TagCreatePageComponent
+    TagCreatePageComponent,
+    TagDialogDeleteComponent
     ],
   imports: [
     BrowserModule,
