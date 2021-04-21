@@ -11,7 +11,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -26,6 +26,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-detail-page.component';
+import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.component';
 
 
 @NgModule({
@@ -35,13 +36,15 @@ import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-det
     ExpertPageComponent,
     TagPageComponent,
     LoginPageComponent,
-    ExpertDetailPageComponent
+    ExpertDetailPageComponent,
+    TagCreatePageComponent
     ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
     MatSidenavModule,

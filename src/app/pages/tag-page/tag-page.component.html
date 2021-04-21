@@ -4,6 +4,10 @@
   <button mat-raised-button color="primary" (click)="returnBack()">Volver a Home</button>
 </div>
 
+<div>
+  <button mat-raised-button color="success" routerLink='/etiquetas/crear'>Crear Etiqueta</button>
+</div>
+
 <mat-form-field>
   <mat-label>Filtar</mat-label>
   <input matInput (keyup)="filtrarNombre($event)" placeholder="nombre" #input>

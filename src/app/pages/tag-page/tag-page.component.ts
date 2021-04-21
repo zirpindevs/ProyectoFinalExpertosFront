@@ -62,6 +62,7 @@ export class TagPageComponent implements OnInit {
     })
   }
 
+
   buscarTagPorId(): void {
     this.etiquetaService.searchTagById(this.id)
       .subscribe(

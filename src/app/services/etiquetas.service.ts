@@ -35,18 +35,15 @@ deleteTagById(id: number): Observable<any> {
 }
 
 
-crearEtiqueta(etiqueta: Etiqueta): Promise<Array<Etiqueta>> {
-  let empHeaders = new Headers({ 'Content-Type': 'application/json' });
-  return this.http.post(`${baseURLTag}`, JSON.stringify(etiqueta))
-  .toPromise()
-  .then(response => response as Etiqueta[])
-  .catch(this.handleError);
+crearEtiqueta(name: String): Observable<Etiqueta> {
+  console.log(name);
+  return this.http.post<Etiqueta>(baseURLTag, name);
   }
 
 
-  private handleError(error: any): Promise<Array<any>> {
-    console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
-    }
+handleError(error: any): Promise<Array<any>> {
+   console.error('An error occurred', error);
+   return Promise.reject(error.message || error);
+   }
 
 }

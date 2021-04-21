@@ -4,6 +4,7 @@ import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-det
 import { ExpertPageComponent } from './pages/expert-page/expert-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.component';
 import { TagPageComponent } from './pages/tag-page/tag-page.component';
 
 const routes: Routes = [
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'etiquetas',  // http:localhost:4200/etiquetas
     component: TagPageComponent,
+  },
+  {
+    path: 'etiquetas/crear',  // http:localhost:4200/etiquetas/crearetiquetas
+    component: TagCreatePageComponent,
   }
 ];
 

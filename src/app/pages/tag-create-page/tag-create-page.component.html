@@ -1,0 +1,26 @@
+<h2>Crear etiqueta</h2>
+<div>
+  <button mat-raised-button color="primary" (click)="returnBack()">Volver a Home</button>
+</div>
+
+  <div class="create-tag-page">
+
+        <div class="form">
+          <div class="createtag">
+              <div class="createtag-header">
+              <h1> Pagina de Crear Etiqueta </h1>
+
+              </div>
+          </div>
+
+              <form class="register-form" [formGroup]="registerForm" (submit)="addEtiqueta()">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Introduce el Nombre</mat-label>
+                    <input matInput placeholder="Nombre" formControlName="name" [(ngModel)]="name"/>
+                  </mat-form-field>
+                  <button mat-raised-button color="primary" type="submit">Crear</button>
+
+
+            </form>
+      </div>
+  </div>
