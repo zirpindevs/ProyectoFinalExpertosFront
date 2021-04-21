@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit, ViewChild} from '@angular/core';
 import { Location } from '@angular/common';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import { EtiquetasService } from 'src/app/services/etiquetas.service';
 import { Etiqueta } from 'src/app/models/etiqueta/etiqueta.model';
@@ -54,8 +54,14 @@ export class TagPageComponent implements OnInit {
     // this.etiquetaSource.sort = this.sort;
   }
 
-  openDialog() {
-    this.dialog.open(DialogElementsExampleDialog);
+  openDialog()
+   {
+    this.dialog.open(DialogElementsExampleDialog,{
+      data:{
+        id: this.tags
+      }
+        }
+      );
   }
 
   // Método para obtener una frase de la API Restful
@@ -158,4 +164,6 @@ export class TagPageComponent implements OnInit {
   selector: 'dialog-elements-example-dialog',
   templateUrl: './dialog-elements-example-dialog.html',
 })
-export class DialogElementsExampleDialog {}
+export class DialogElementsExampleDialog {
+
+}
