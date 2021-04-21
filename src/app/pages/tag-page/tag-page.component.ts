@@ -56,7 +56,7 @@ export class TagPageComponent implements OnInit {
   }
 
 
-  mostrarDialogo(): void {
+  mostrarDialogo(tagToDelete: any): void {
     this.dialogo
       .open(TagDialogDeleteComponent, {
         data: `¿Deseas borrar la etiqueta?`
@@ -64,10 +64,9 @@ export class TagPageComponent implements OnInit {
       .afterClosed()
       .subscribe((confirmado: Boolean) => {
         if (confirmado) {
-          alert("¡Tarea Borrada!");}
-        //  else {
-        //   alert("Cancelar");
-        // }
+          this.etiquetaService.deleteTagById(tagToDelete.id);
+          alert(" "+tagToDelete.name+" Borrada!");}
+
       });
   }
 
