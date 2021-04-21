@@ -5,6 +5,12 @@ import { Etiqueta } from '../models/etiqueta/etiqueta.model';
 
 
 const baseURLTag = 'http://localhost:8080/api/etiquetas';
+const headers = new Headers;
+const body = JSON.stringify(
+{
+title: "data"
+});
+headers.append('Access-Control-Allow-Origin', '*');
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +18,6 @@ const baseURLTag = 'http://localhost:8080/api/etiquetas';
 export class EtiquetasService {
 
   constructor(private http: HttpClient) { }
-
 
 
 findAllTags(): Observable<any> {
@@ -31,7 +36,7 @@ searchTagById(id: number): Observable<any> {
 
 
 deleteTagById(id: number): Observable<any> {
- return this.http.delete(`${baseURLTag}/${id}`);
+ return this.http.delete(baseURLTag+'/'+id);
 }
 
 
