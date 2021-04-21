@@ -12,4 +12,10 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  logout(): void {
+    // this.authService.setLoggedIn(false);
+    // sessionStorage.removeItem('Token');
+    // sessionStorage.removeItem('Id');
+    // this.router.navigate(['/login']);
+  }
 }

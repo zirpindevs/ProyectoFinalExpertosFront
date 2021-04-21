@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { FormGroup, FormBuilder, FormControl, Validators, FormsModule} from '@angular/forms';
+import { Location } from '@angular/common';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
@@ -51,7 +52,7 @@ export class ExpertPageComponent implements OnInit {
   pageSizeOptions = [5, 10, 25];
   showFirstLastButtons = true;
 
-  constructor(private dataService: DataService, private router: Router) {
+  constructor(private dataService: DataService, private router: Router, private location: Location) {
 
     //const users = Array.from({length: 100}, (_, k) => this.createNewUser(k + 1));
 
@@ -91,6 +92,9 @@ export class ExpertPageComponent implements OnInit {
     this.obtenerListaEstado(this.dataSource.filter);
   }
 
+  returnBack() {
+    this.location.back();
+  }
 
   // Método para obtener una frase de la API Restful
   // a través del servicio de DataService
