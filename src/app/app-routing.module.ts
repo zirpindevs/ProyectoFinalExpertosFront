@@ -27,7 +27,7 @@ const routes: Routes = [
     component: ExpertPageComponent,
   },
   {
-    path: 'expertos/:id',  // http:localhost:4200/expertos/id
+    path: 'expertos/detalles/:id',  // http:localhost:4200/expertos/id
     component: ExpertDetailPageComponent,
   },
   {

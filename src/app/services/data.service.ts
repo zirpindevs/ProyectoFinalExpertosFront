@@ -43,13 +43,19 @@ export class DataService {
   }
 
 
-  createEmployee(expert: Expert): Promise<Array<Expert>> {
+  createExperto(expert: Expert): Promise<Array<Expert>> {
     let empHeaders = new Headers({ 'Content-Type': 'application/json' });
     return this.http.post(`${baseURL}`, JSON.stringify(expert))
     .toPromise()
     .then(response => response as Expert[])
     .catch(this.handleError);
     }
+
+
+    crearEtiqueta(name: String): Observable<Etiqueta> {
+      console.log(name);
+      return this.http.post<Etiqueta>(baseURL, name);
+      }
 
 
     AddTag(expert: Expert, etiqueta: Etiqueta): Promise<Array<Expert>> {
