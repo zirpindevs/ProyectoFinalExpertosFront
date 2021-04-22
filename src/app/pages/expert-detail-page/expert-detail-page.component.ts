@@ -20,9 +20,12 @@ export class ExpertDetailPageComponent implements OnInit {
   idExpert: string = '';
 
   expert: any;
-  tags: any;
   Listatags: any;
-
+  tags: any = {
+    id: '',
+    name: '',
+    createDate: '',
+  };
 
   loading: boolean = false;
   errorMessage = "";
@@ -45,6 +48,7 @@ export class ExpertDetailPageComponent implements OnInit {
         lastUpdate: '',
         tags: []
     }
+
 
     noName: string;
     pagina: number;
@@ -120,7 +124,8 @@ export class ExpertDetailPageComponent implements OnInit {
       })
     }
 
-    borrarTareaExperto(tagABorrar: any){
-      this.etiquetaService.deleteArticle(tagABorrar.id);
+    borrarTareaExperto(tagABorrar: number){
+      this.tags.id = tagABorrar;
+      this.etiquetaService.deleteArticle(this.tags.id);
     }
   }

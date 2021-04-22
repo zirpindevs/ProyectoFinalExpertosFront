@@ -42,7 +42,7 @@
   <tr *ngFor="let tag of tags">
     <td>
         <li>    {{tag.name}}
-        <button mat-raised-button mat-button color="warn" (click)="borrarTareaExperto(tag)">X</button>
+        <button mat-raised-button mat-button color="warn" (click)="borrarTareaExperto(tag.id)">X</button>
       </li>
   </td>
     </tr>

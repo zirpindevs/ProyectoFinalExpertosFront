@@ -173,7 +173,7 @@ export class ExpertPageComponent implements OnInit {
   }
 
   borrarPorId(): void {
-    this.dataService.deleteById(this.id)
+    this.dataService.deleteExpertById(this.id)
       .subscribe(
         experts => {
           this.experts = experts;

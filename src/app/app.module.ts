@@ -31,6 +31,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-detail-page.component';
 import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.component';
 import { TagDialogDeleteComponent } from './pages/tag-dialog-delete/tag-dialog-delete.component';
+import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-create-page.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { TagDialogDeleteComponent } from './pages/tag-dialog-delete/tag-dialog-d
     LoginPageComponent,
     ExpertDetailPageComponent,
     TagCreatePageComponent,
-    TagDialogDeleteComponent
+    TagDialogDeleteComponent,
+    ExpertCreatePageComponent
     ],
   imports: [
     BrowserModule,

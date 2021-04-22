@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-create-page.component';
 import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-detail-page.component';
 import { ExpertPageComponent } from './pages/expert-page/expert-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'expertos/:id',  // http:localhost:4200/expertos/id
     component: ExpertDetailPageComponent,
+  },
+  {
+    path: 'expertos/crear',  // http:localhost:4200/expertos/crear
+    component: ExpertCreatePageComponent,
   },
   {
     path: 'etiquetas',  // http:localhost:4200/etiquetas

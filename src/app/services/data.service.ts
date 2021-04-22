@@ -38,7 +38,7 @@ export class DataService {
   }
 
 
-  deleteById(id: number): Observable<any> {
+  deleteExpertById(id: number): Observable<any> {
     return this.http.delete(`${baseURL}/${id}`);
   }
 
