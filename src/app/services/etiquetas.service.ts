@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Etiqueta } from '../models/etiqueta/etiqueta.model';
@@ -39,6 +39,17 @@ deleteTagById(id: number): Observable<any> {
  return this.http.delete(baseURLTag+'/'+id);
 }
 
+
+ deleteArticle(id: number) {
+  const httpParams = new HttpParams().set('id', String(id));
+  const options = { params: httpParams };
+  return new Promise((res, rej) => {
+    this.http.delete(baseURLTag, options)
+      .subscribe((serverResponse: any) => {
+        console.log(serverResponse);
+      });
+  });
+ }
 
 crearEtiqueta(name: String): Observable<Etiqueta> {
   console.log(name);
