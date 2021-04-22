@@ -41,7 +41,9 @@
 <table>
   <tr *ngFor="let tag of tags">
     <td>
-        <li>    {{tag.name}} </li>
+        <li>    {{tag.name}}
+        <button mat-raised-button mat-button color="warn" (click)="borrarTareaExperto(tag)">X</button>
+      </li>
   </td>
     </tr>
 </table></div>
@@ -52,7 +54,6 @@
 
     <select>
       <option *ngFor="let listaTag of Listatags">{{listaTag.name}}</option>
-
     </select>
   </div>
 

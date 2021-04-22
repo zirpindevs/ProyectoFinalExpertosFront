@@ -119,4 +119,8 @@ export class ExpertDetailPageComponent implements OnInit {
         this.loading = false;
       })
     }
+
+    borrarTareaExperto(tagABorrar: any){
+      this.etiquetaService.deleteArticle(tagABorrar.id);
+    }
   }
