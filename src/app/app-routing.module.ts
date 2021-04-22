@@ -39,7 +39,7 @@ const routes: Routes = [
     component: TagPageComponent,
   },
   {
-    path: 'etiquetas/crear',  // http:localhost:4200/etiquetas/crearetiquetas
+    path: 'etiquetas/crear',  // http:localhost:4200/etiquetas/crear
     component: TagCreatePageComponent,
   }
 ];
