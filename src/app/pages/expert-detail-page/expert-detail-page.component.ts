@@ -124,8 +124,9 @@ export class ExpertDetailPageComponent implements OnInit {
       })
     }
 
-    borrarTareaExperto(tagABorrar: number){
-      this.tags.id = tagABorrar;
-      this.etiquetaService.deleteArticle(this.tags.id);
-    }
+    borrarTareaExperto(tagToDelete: any){
+      this.etiquetaService.deleteTagById(Number(tagToDelete.id)).subscribe(() => console.log("tag user deleted"));;
+      alert(" "+tagToDelete.name+" Tarea borrada!");}
+
+
   }
