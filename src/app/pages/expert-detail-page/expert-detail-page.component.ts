@@ -84,27 +84,33 @@ export class ExpertDetailPageComponent implements OnInit {
         nif: '',
         disponibilidad: '',
         estado: '',
-        valoracion: ''
+        valoracion: '',
+        telefono: '',
+        correo: '',
+        direccion: ''
       });
-
-
       }
-
-
 
       returnBack() {
         this.location.back();
       }
 
-
     // Evento capturado en el Hijo que emite hacia el Padre
     // Enviará al padre, el contacto para que actualice datos
     actualizar() {
       this.expert.name = this.registerForm.value.name;
+      this.expert.surname = this.registerForm.value.surname;
       this.expert.nif = this.registerForm.value.nif;
+      this.expert.disponibilidad = this.registerForm.value.disponibilidad;
+      this.expert.estado = this.registerForm.value.estado;
+      this.expert.puntuacion = this.registerForm.value.valoracion;
+      this.expert.telefono = this.registerForm.value.telefono;
+      this.expert.correo = this.registerForm.value.correo;
+      this.expert.direccion = this.registerForm.value.direccion;
 
       console.log(this.expert);
-      console.log(this.expert.first_name);
+
+
       //this.cambiarContacto.emit(this.expert);
     }
 

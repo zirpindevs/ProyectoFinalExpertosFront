@@ -47,23 +47,34 @@
       <input matInput placeholder="valoracion" formControlName="valoracion" />
     </mat-form-field>
   </p>
+  <div style="position: absolute; left: 350px;">
+    <a>Datos Contacto</a>
 
-
+    <p>Telefono:
+    <mat-form-field appearance="standard">
+      <mat-label>{{expert.telefono}}</mat-label>
+      <input matInput placeholder="telefono" formControlName="telefono" />
+    </mat-form-field>
+</p>
+<p>
+    Correo:
+    <mat-form-field appearance="standard">
+      <mat-label>{{expert.correo}}</mat-label>
+      <input matInput placeholder="correo" formControlName="correo" />
+    </mat-form-field>
+  </p>
+<p>
+    Direccion:
+    <mat-form-field appearance="standard">
+      <mat-label>{{expert.direccion}}</mat-label>
+      <input matInput placeholder="direccion" formControlName="direccion" />
+    </mat-form-field>
+  </p>
     <button mat-raised-button color="primary" type="submit">modificar</button>
-
+  </div>
 </form>
 <div>
 
-
-
-<div style="position: absolute; left: 350px;">
-  <a>Datos Contacto</a>
-
-  <li> Telefono: {{expert.telefono}}</li>
- <li> Correo: {{expert.correo}}</li>
- <li> Direccion: {{expert.direccion}}</li>
-
-</div>
 <button type="button" disabled mat-raised-button mat-button color="primary" (click)="crearEtiquetaExperto(listatagsSelected)">+</button>
 
 
