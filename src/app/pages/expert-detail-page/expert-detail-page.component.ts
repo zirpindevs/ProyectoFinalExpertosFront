@@ -80,7 +80,11 @@ export class ExpertDetailPageComponent implements OnInit {
       this.registerForm = this.formBuilder.group({
         // Here we define the FormControls with the default value
         name: '',
-        nif: ''
+        surname: '',
+        nif: '',
+        disponibilidad: '',
+        estado: '',
+        valoracion: ''
       });
 
 
@@ -95,11 +99,13 @@ export class ExpertDetailPageComponent implements OnInit {
 
     // Evento capturado en el Hijo que emite hacia el Padre
     // Enviará al padre, el contacto para que actualice datos
-    actualizar(ExpertUpdate: Expert) {
-      this.expert.first_name = ExpertUpdate.name;
-      this.expert.nif = ExpertUpdate.nif;
+    actualizar() {
+      this.expert.name = this.registerForm.value.name;
+      this.expert.nif = this.registerForm.value.nif;
 
-      this.cambiarContacto.emit(this.expert);
+      console.log(this.expert);
+      console.log(this.expert.first_name);
+      //this.cambiarContacto.emit(this.expert);
     }
 
     obtenerUsuario(id:any) {
@@ -143,17 +149,6 @@ export class ExpertDetailPageComponent implements OnInit {
 
     crearEtiquetaExperto(listatagsSelected: string) {
         this.dataService.crearEtiquetaUsuario(this.expert, listatagsSelected)
-      }
-
-      register(): void {
-
-        // We verify the LRegisterForm is Valid and we can access to email and password
-        if(this.registerForm.valid && this.registerForm.value.name && this.registerForm.value.nif){
-          console.log(this.registerForm);
-          console.log(this.registerForm.value.name);
-          console.log(this.registerForm.value.nif);
-
-        }
       }
 
 

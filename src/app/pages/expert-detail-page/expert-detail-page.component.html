@@ -2,33 +2,58 @@
 <div style="text-align:center">
   <h2>Informacion del Experto: {{expert.id}} </h2>
 
+  <h5>Fecha Creacion: {{expert.createdDate}}</h5>
+  <h5>Ultima Actualizacion: {{expert.last_updated}}</h5>
+
   <div>
     <button mat-raised-button color="primary" (click)="returnBack()">Volver a Lista de Expertos</button>
   </div>
 
-  <h2>Nombre: {{expert.name}}  {{expert.surname}} </h2>
+  <form class="register-form" [formGroup]="registerForm" (submit)="actualizar()">
 
-  <h3>NIF: {{expert.nif}}</h3>
-  <input matInput name="nif" placeholder="nif "[(ngModel)]="expert.nif" />
+<p>
+    <mat-form-field appearance="standard">
+      <mat-label>{{expert.name}}</mat-label>
+      <input matInput placeholder="nombre" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>{{expert.surname}}</mat-label>
+      <input matInput placeholder="apellido" formControlName="surname" />
+    </mat-form-field>
+  </p>
 
-  <h5>Fecha Creacion: {{expert.createdDate}}</h5>
-  <h5>Ultima Actualizacion: {{expert.last_updated}}</h5>
+  <p>NIF:
+    <mat-form-field appearance="standard">
+      <mat-label>{{expert.nif}}</mat-label>
+      <input matInput placeholder="nif" formControlName="nif" />
+    </mat-form-field>
+  </p>
+
+<p>Disponibilidad:
+    <mat-form-field appearance="standard">
+      <mat-label>{{expert.disponibilidad}}</mat-label>
+      <input matInput placeholder="disponibilidad" formControlName="disponibilidad" />
+    </mat-form-field>
+
+    Estado:
+    <mat-form-field appearance="standard">
+      <mat-label>{{expert.estado}}</mat-label>
+      <input matInput placeholder="estado" formControlName="estado" />
+    </mat-form-field>
+
+    Valoracion:
+    <mat-form-field appearance="standard">
+      <mat-label>{{expert.puntuacion}}</mat-label>
+      <input matInput placeholder="valoracion" formControlName="valoracion" />
+    </mat-form-field>
+  </p>
 
 
+    <button mat-raised-button color="primary" type="submit">modificar</button>
 
-
+</form>
 <div>
-<a>Datos generales</a>
 
-<h3>
-  Disponibilidad :{{expert.disponibilidad}}
-  Estado: {{expert.estado}}
-  Valoracion: {{expert.puntuacion}}
-</h3>
-
-</div>
-
-<button type="button" disabled mat-raised-button mat-button color="primary" (click)="crearEtiquetaExperto(listatagsSelected)">+</button>
 
 
 <div style="position: absolute; left: 350px;">
@@ -39,6 +64,8 @@
  <li> Direccion: {{expert.direccion}}</li>
 
 </div>
+<button type="button" disabled mat-raised-button mat-button color="primary" (click)="crearEtiquetaExperto(listatagsSelected)">+</button>
+
 
 <div style="position: absolute; left: 600px;">
 <a>Etiquetas</a>
@@ -65,18 +92,18 @@
 
   </div>
 
-
-  <form class="register-form" [formGroup]="registerForm" (submit)="register()">
-    <mat-form-field class="example-full-width">
-      <mat-label>{{expert.name}}</mat-label>
-      <input matInput placeholder="new name" formControlName="name" />
-    </mat-form-field>
-      <div>
-        <mat-form-field class="example-full-width">
-          <mat-label>Introduce tu nif</mat-label>
-          <input matInput placeholder="nif" formControlName="nif" />
-        </mat-form-field>
-      </div>
-    <button mat-raised-button color="primary" type="submit">modificar</button>
-
-</form>
+  <!-- <form class="register-form" [formGroup]="registerForm" (submit)="register()"> -->
+    <!-- <mat-form-field class="example-full-width"> -->
+      <!-- <mat-label>{{expert.name}}</mat-label> -->
+      <!-- <input matInput placeholder="new name" formControlName="name" /> -->
+    <!-- </mat-form-field> -->
+      <!-- <div> -->
+        <!-- <mat-form-field class="example-full-width"> -->
+          <!-- <mat-label>Introduce tu nif</mat-label> -->
+          <!-- <input matInput placeholder="nif" formControlName="nif" /> -->
+        <!-- </mat-form-field> -->
+      <!-- </div> -->
+    <!-- <button mat-raised-button color="primary" type="submit">modificar</button> -->
+<!--  -->
+<!-- </form> -->
+<!--  -->
