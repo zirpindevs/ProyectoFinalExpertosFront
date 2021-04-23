@@ -3,6 +3,8 @@ import { ActivatedRoute, Router  } from '@angular/router';
 import { Location } from '@angular/common';
 import { DataService } from 'src/app/services/data.service';
 import { EtiquetasService } from 'src/app/services/etiquetas.service';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 
 import { Expert } from 'src/app/models/expert/expert.model';
@@ -14,6 +16,8 @@ import { Etiqueta } from 'src/app/models/etiqueta/etiqueta.model';
   styleUrls: ['./expert-detail-page.component.scss']
 })
 export class ExpertDetailPageComponent implements OnInit {
+
+  registerForm: FormGroup = new FormGroup({})
 
 
   // ID of the Expert, that comes from the URL Parms
@@ -50,7 +54,6 @@ export class ExpertDetailPageComponent implements OnInit {
         tags: []
     }
 
-
     noName: string;
     pagina: number;
 
@@ -62,7 +65,8 @@ export class ExpertDetailPageComponent implements OnInit {
    * @param activatedRoute --> The Active Route in that moment
    * @param router --> To navigate to another route
    */
-    constructor(private activatedRoute: ActivatedRoute, private router: Router, private location: Location, private dataService: DataService, private etiquetaService: EtiquetasService) { }
+    constructor(private activatedRoute: ActivatedRoute, private router: Router, private location: Location, private dataService: DataService,
+       private etiquetaService: EtiquetasService, private formBuilder: FormBuilder) { }
 
     ngOnInit(): void {
 
@@ -72,6 +76,13 @@ export class ExpertDetailPageComponent implements OnInit {
 
       this.obtenerUsuario(this.idExpert);
       this.obtenerListaEtiquetas();
+
+      this.registerForm = this.formBuilder.group({
+        // Here we define the FormControls with the default value
+        name: '',
+        nif: ''
+      });
+
 
       }
 
@@ -132,6 +143,19 @@ export class ExpertDetailPageComponent implements OnInit {
 
     crearEtiquetaExperto(listatagsSelected: string) {
         this.dataService.crearEtiquetaUsuario(this.expert, listatagsSelected)
-    }
+      }
+
+      register(): void {
+
+        // We verify the LRegisterForm is Valid and we can access to email and password
+        if(this.registerForm.valid && this.registerForm.value.name && this.registerForm.value.nif){
+          console.log(this.registerForm);
+          console.log(this.registerForm.value.name);
+          console.log(this.registerForm.value.nif);
+
+        }
+      }
+
+
 
   }

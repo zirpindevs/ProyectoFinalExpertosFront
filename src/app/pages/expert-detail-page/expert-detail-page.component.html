@@ -7,7 +7,10 @@
   </div>
 
   <h2>Nombre: {{expert.name}}  {{expert.surname}} </h2>
+
   <h3>NIF: {{expert.nif}}</h3>
+  <input matInput name="nif" placeholder="nif "[(ngModel)]="expert.nif" />
+
   <h5>Fecha Creacion: {{expert.createdDate}}</h5>
   <h5>Ultima Actualizacion: {{expert.last_updated}}</h5>
 
@@ -49,19 +52,6 @@
     </tr>
 </table></div>
 
-    <!-- <h3>Lista de Etiquetas</h3>
-
-  <div class="custom-select">
-
-    <select>
-      <option *ngFor="let listaTag of Listatags">
-        {{listaTag.name}}
-      </option>
-
-    </select>
-
-  </div> -->
-
   <form>
     <mat-form-field appearance="fill">
       <mat-label>Etiquetas Disponibles</mat-label>
@@ -73,6 +63,20 @@
     </mat-form-field>
   </form>
 
-
-
   </div>
+
+
+  <form class="register-form" [formGroup]="registerForm" (submit)="register()">
+    <mat-form-field class="example-full-width">
+      <mat-label>{{expert.name}}</mat-label>
+      <input matInput placeholder="new name" formControlName="name" />
+    </mat-form-field>
+      <div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Introduce tu nif</mat-label>
+          <input matInput placeholder="nif" formControlName="nif" />
+        </mat-form-field>
+      </div>
+    <button mat-raised-button color="primary" type="submit">modificar</button>
+
+</form>
