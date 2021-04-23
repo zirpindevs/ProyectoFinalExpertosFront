@@ -8,7 +8,7 @@
  </div>
 
 <div class="mat-elevation-z8">
-
+<a> {{this.length}} Candidatos </a>
   <div>
   <mat-form-field appearance="fill">
     <mat-label>Nombre</mat-label>
@@ -57,11 +57,11 @@
         </td>
       </ng-container>
 
-    <!-- valoracion Column -->
-    <ng-container matColumnDef="puntuacion" >
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Valoracion </th>
-      <td mat-cell *matCellDef="let row" [style.color]="row"  > {{row.tags[0].puntuacion}} </td>
-    </ng-container>
+  <!-- Name Column -->
+  <ng-container matColumnDef="puntuacion">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Valoracion</th>
+    <td mat-cell *matCellDef="let row"> {{row.puntuacion}} </td>
+  </ng-container>
 
     <!-- actions Column -->
     <ng-container matColumnDef="actions">
