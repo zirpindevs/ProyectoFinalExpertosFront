@@ -25,6 +25,7 @@
 
 </div>
 
+<button type="button" disabled mat-raised-button mat-button color="primary" (click)="crearEtiquetaExperto(listatagsSelected)">+</button>
 
 
 <div style="position: absolute; left: 350px;">
@@ -42,19 +43,36 @@
   <tr *ngFor="let tag of tags">
     <td>
         <li>    {{tag.name}}
-        <button mat-raised-button mat-button color="warn" (click)="borrarTareaExperto(tag)">X</button>
+        <button type="button" disabled mat-raised-button mat-button color="warn" (click)="borrarEtiquetaxperto(tag)">-</button>
       </li>
   </td>
     </tr>
 </table></div>
 
-    <h3>Lista de Etiquetas</h3>
+    <!-- <h3>Lista de Etiquetas</h3>
 
   <div class="custom-select">
 
     <select>
-      <option *ngFor="let listaTag of Listatags">{{listaTag.name}}</option>
+      <option *ngFor="let listaTag of Listatags">
+        {{listaTag.name}}
+      </option>
+
     </select>
-  </div>
+
+  </div> -->
+
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>Etiquetas Disponibles</mat-label>
+      <mat-select [(ngModel)]="listatagsSelected" name="listaTag">
+        <mat-option *ngFor="let listaTag of Listatags" [value]="listaTag.name">
+          {{listaTag.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+
 
   </div>

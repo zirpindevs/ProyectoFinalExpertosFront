@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Etiqueta } from '../models/etiqueta/etiqueta.model';
+import { Expert } from '../models/expert/expert.model';
 
 
 const baseURLTag = 'http://localhost:8080/api/etiquetas';
@@ -50,6 +51,18 @@ deleteTagById(id: number): Observable<any> {
       });
   });
  }
+
+
+
+ deleteArticle2(etiquetaId: number, expert: Expert): Promise<Array<Expert>> {
+  let empHeaders = new Headers({ 'Content-Type': 'application/json' });
+  return this.http.put(`${baseURLTag}`, JSON.stringify(expert))
+  .toPromise()
+  .then(response => response as Expert[])
+  .catch(this.handleError);
+  }
+
+
 
 
 crearEtiqueta(name: String): Observable<Etiqueta> {

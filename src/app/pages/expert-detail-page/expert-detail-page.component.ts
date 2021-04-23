@@ -20,6 +20,7 @@ export class ExpertDetailPageComponent implements OnInit {
   idExpert: string = '';
 
   expert: any;
+  listatagsSelected : string;
   Listatags: any;
   tags: any = {
     id: '',
@@ -124,9 +125,13 @@ export class ExpertDetailPageComponent implements OnInit {
       })
     }
 
-    borrarTareaExperto(tagToDelete: any){
+    borrarEtiquetaxperto(tagToDelete: any){
       this.etiquetaService.deleteTagById(Number(tagToDelete.id)).subscribe(() => console.log("tag user deleted"));;
-      alert(" "+tagToDelete.name+" Tarea borrada!");}
+      alert(" "+tagToDelete.name+" Tarea borrada!");
+    }
 
+    crearEtiquetaExperto(listatagsSelected: string) {
+        this.dataService.crearEtiquetaUsuario(this.expert, listatagsSelected)
+    }
 
   }

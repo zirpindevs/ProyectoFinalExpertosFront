@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpRequest} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Expert} from "../models/expert/expert.model"
 import { Etiqueta } from '../models/etiqueta/etiqueta.model';
@@ -52,10 +52,34 @@ export class DataService {
     }
 
 
-    crearEtiqueta(name: String): Observable<Etiqueta> {
+  crearEtiqueta(name: String): Observable<Etiqueta> {
       console.log(name);
       return this.http.post<Etiqueta>(baseURL, name);
+  }
+
+
+
+
+
+    crearEtiquetaUsuario(expert: Expert, addEtiqueta: string){
+      const headers = new HttpHeaders().append(
+      'Content-Type',
+      'application/json'
+    );
+
+      const body=JSON.stringify("etiqueta "+addEtiqueta);
+      const params = new HttpParams()
+      .append('id', String(expert.id));
+
+      return this.http.put<any>(baseURL+'/'+expert.id, body,
+      {        headers: headers,
+      })
+      .subscribe((res) => console.log(res));
       }
+
+
+
+
 
 
     AddTag(expert: Expert, etiqueta: Etiqueta): Promise<Array<Expert>> {
