@@ -1,7 +1,9 @@
+<div class="centrada">
+
 <h3 style="text-align: left;"> Lista Etiquetas</h3>
 
 <div>
-  <button mat-raised-button color="primary" (click)="returnBack()">Volver a Home</button>
+  <button class="menu-button" mat-raised-button color="primary" (click)="returnBack()">Volver a Home</button>
 </div>
 
 <div>
@@ -27,7 +29,7 @@
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="nombre">
+    <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
       <td mat-cell *matCellDef="let row"> {{row.name}} </td>
     </ng-container>
