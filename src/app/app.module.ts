@@ -13,6 +13,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 
+
+import {MatTabsModule} from '@angular/material/tabs';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -63,7 +65,8 @@ import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-cre
     MatSelectModule,
     MatIconModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTabsModule
    ],
   providers: [DataService],
   bootstrap: [AppComponent]

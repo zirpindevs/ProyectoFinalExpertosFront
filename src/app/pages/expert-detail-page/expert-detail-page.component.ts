@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { DataService } from 'src/app/services/data.service';
 import { EtiquetasService } from 'src/app/services/etiquetas.service';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
