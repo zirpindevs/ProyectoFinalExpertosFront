@@ -18,7 +18,7 @@ td, th {
   width: 50%;
   position: relative;
   left: 150px;
-  bottom: 150px;
+  bottom: 550px;
 }
 
 
@@ -30,4 +30,14 @@ td, th {
 .mat-expert {
   background-color: rgb(82, 168, 202);
   color: #fff;
+}
+
+.mat-toolbar {
+  position: relative;
+  left: 90px;
+}
+
+button.menu-button{
+  position: relative;
+  left: 1600px;
 }

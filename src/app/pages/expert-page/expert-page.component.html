@@ -1,15 +1,16 @@
-<h3 style="text-align: left;"> Lista Expertos</h3>
-<div>
-  <button mat-raised-button color="primary" (click)="returnBack()">Volver a Home</button>
-</div>
-<div>
-  <!-- Navigate to expert -->
-   <button mat-raised-button color="expert" routerLink='/expertos/crear'>crear Expertos</button>
- </div>
+<p>
+  <mat-toolbar>
 
-<div class="mat-elevation-z8">
-<a> {{this.length}} Candidatos </a>
-  <div>
+    <span class="example-spacer">Lista de Expertos
+    <h5>{{this.length}} Candidatos </h5>
+    </span>
+
+  <!-- Navigate create expert -->
+  <button mat-raised-button class="menu-button" color="expert" routerLink='/expertos/crear'>crear Expertos</button>
+
+  </mat-toolbar>
+</p>
+
   <mat-form-field appearance="fill">
     <mat-label>Nombre</mat-label>
     <input matInput (keyup)="filtrarNombre($event)" placeholder="name" #input>
@@ -23,7 +24,6 @@
       <option value="descartado">Descartado</option>
     </select>
   </mat-form-field>
-</div>
 
   <table mat-table [dataSource]="experts" matSort>
 
@@ -76,7 +76,7 @@
       </tr>
   </table>
 
-    <div style="position: absolute; bottom: 1px">
+    <div>
       <mat-paginator
         (page)="handlePageEvent($event)"
         [length]="length"
@@ -86,4 +86,4 @@
         [pageIndex]="pageIndex">
       </mat-paginator>
   </div>
-</div>
+

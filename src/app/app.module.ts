@@ -8,10 +8,11 @@ import {MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatSort, MatSortModule} from '@angular/material/sort';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSidenavModule, MatSidenavContent} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 import {MatTabsModule} from '@angular/material/tabs';
@@ -27,6 +28,7 @@ import { DataService } from './services/data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Material Select Input and Realted Important Modules
+import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
@@ -66,7 +68,11 @@ import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-cre
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
-    MatTabsModule
+    MatTabsModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatToolbarModule,
+    MatSidenavModule
    ],
   providers: [DataService],
   bootstrap: [AppComponent]
