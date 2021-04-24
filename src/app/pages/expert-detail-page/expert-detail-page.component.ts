@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Router  } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { DataService } from 'src/app/services/data.service';
 import { EtiquetasService } from 'src/app/services/etiquetas.service';
@@ -99,6 +99,10 @@ export class ExpertDetailPageComponent implements OnInit {
         this.location.back();
       }
 
+
+      refreshComponent(){
+        this.router.navigate([this.router.url])
+     }
     // Evento capturado en el Hijo que emite hacia el Padre
     // Enviará al padre, el contacto para que actualice datos
     actualizarDatosUsuario() {
@@ -115,12 +119,14 @@ export class ExpertDetailPageComponent implements OnInit {
       this.expert.estadoMotivo = this.registerForm.value.estadoMotivo;
 
 
-      //count number of tags
+      if(this.registerForm.value.etiqueta != undefined)
+      {
+       //count number of tags
       let countTags = -1;
       for (const key in this.expert.tags){
-      if (this.expert.tags.hasOwnProperty(key)) {
-        countTags++;
-        }
+        if (this.expert.tags.hasOwnProperty(key)) {
+          countTags++;
+          }
       }
 
       if(this.registerForm.value.etiqueta != null){
@@ -128,10 +134,10 @@ export class ExpertDetailPageComponent implements OnInit {
         'name': this.registerForm.value.etiqueta
         }
       }
+    }
 
-      console.log(this.expert.tags)
-      console.log(this.expert);
      this.dataService.modificarUsuario(this.expert)
+     this.refreshComponent();
     }
 
 

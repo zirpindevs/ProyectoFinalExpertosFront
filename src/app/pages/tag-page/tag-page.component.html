@@ -8,6 +8,10 @@
   <button mat-raised-button color="create" routerLink='/etiquetas/crear'>Crear Etiqueta</button>
 </div>
 
+<div>
+  <button mat-raised-button color="update" (click)="refreshComponent()">Actualizar</button>
+</div>
+
 <mat-form-field>
   <mat-label>Filtar</mat-label>
   <input matInput (keyup)="filtrarNombre($event)" placeholder="nombre" #input>

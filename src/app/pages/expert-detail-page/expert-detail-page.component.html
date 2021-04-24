@@ -39,13 +39,21 @@
           <p>Disponibilidad:
               <mat-form-field appearance="standard">
                 <mat-label>{{expert.disponibilidad}}</mat-label>
-                <input matInput placeholder="disponibilidad" formControlName="disponibilidad" />
-              </mat-form-field>
+                <select matNativeControl #select formControlName="disponibilidad">
+                  <option value="Inmediata">Inmediata</option>
+                  <option value="Mañanas">Mañanas</option>
+                  <option value="Tardes">Tardes</option>
+                  <option value="Completa">Completa</option>
+                </select>              </mat-form-field>
 
               Estado:
               <mat-form-field appearance="standard">
                 <mat-label>{{expert.estado}}</mat-label>
-                <input matInput placeholder="estado" formControlName="estado" />
+                <select matNativeControl #select formControlName="estado">
+                  <option value="validado">Validado</option>
+                  <option value="pendiente">Pendiente</option>
+                  <option value="descartado">Descartado</option>
+                </select>
               </mat-form-field>
 
               Valoracion:

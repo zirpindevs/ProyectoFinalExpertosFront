@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
-import {Router, NavigationEnd,ActivatedRoute} from '@angular/router';
+import {Router, NavigationEnd, ActivatedRoute} from '@angular/router';
 import { EtiquetasService } from 'src/app/services/etiquetas.service';
 import { Etiqueta } from 'src/app/models/etiqueta/etiqueta.model';
 import { TagDialogDeleteComponent } from "../tag-dialog-delete/tag-dialog-delete.component"
@@ -65,8 +65,9 @@ export class TagPageComponent implements OnInit {
       .afterClosed()
       .subscribe((confirmado: Boolean) => {
         if (confirmado) {
-          this.etiquetaService.deleteTagById(Number(tagToDelete.id)).subscribe(() => console.log("user deleted"));;
-          alert(" "+tagToDelete.name+" Borrada!");}
+          this.etiquetaService.deleteTagById(Number(tagToDelete.id)).subscribe(() => console.log("user deleted"));
+          alert(" "+tagToDelete.name+" Borrada!");
+        }
 
       });
   }
@@ -98,11 +99,9 @@ export class TagPageComponent implements OnInit {
     this.refreshComponent();
   }
 
-  refreshComponent(){
-    //this.router.navigate([this.router.url])
-    this.router.navigate(['/etiquetas']);
- }
-
+ refreshComponent(){
+   window.location.reload();
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
