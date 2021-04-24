@@ -57,10 +57,6 @@ export class DataService {
       return this.http.post<Etiqueta>(baseURL, name);
   }
 
-
-
-
-
     crearEtiquetaUsuario(expert: Expert, addEtiqueta: string){
       const headers = new HttpHeaders().append(
       'Content-Type',
@@ -72,6 +68,23 @@ export class DataService {
       .append('id', String(expert.id));
 
       return this.http.put<any>(baseURL+'/'+expert.id, body,
+      {        headers: headers,
+      })
+      .subscribe((res) => console.log(res));
+      }
+
+
+
+    modificarUsuario(modifiedExpert: Expert){
+      const headers = new HttpHeaders().append(
+      'Content-Type',
+      'application/json'
+    );
+
+    const params = new HttpParams()
+      .append('id', String(modifiedExpert.id));
+
+      return this.http.put<any>(baseURL+'/'+modifiedExpert.id, modifiedExpert,
       {        headers: headers,
       })
       .subscribe((res) => console.log(res));

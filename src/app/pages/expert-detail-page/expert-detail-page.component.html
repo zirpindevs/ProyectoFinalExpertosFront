@@ -9,7 +9,7 @@
     <button mat-raised-button color="primary" (click)="returnBack()">Volver a Lista de Expertos</button>
   </div>
 
-  <form class="register-form" [formGroup]="registerForm" (submit)="actualizar()">
+  <form class="register-form" [formGroup]="registerForm" (submit)="actualizarDatosUsuario()">
 
 <p>
     <mat-form-field appearance="standard">
@@ -70,6 +70,7 @@
       <input matInput placeholder="direccion" formControlName="direccion" />
     </mat-form-field>
   </p>
+
     <button mat-raised-button color="primary" type="submit">modificar</button>
   </div>
 </form>

@@ -87,7 +87,8 @@ export class ExpertDetailPageComponent implements OnInit {
         valoracion: '',
         telefono: '',
         correo: '',
-        direccion: ''
+        direccion: '',
+        etiqueta: ''
       });
       }
 
@@ -97,7 +98,7 @@ export class ExpertDetailPageComponent implements OnInit {
 
     // Evento capturado en el Hijo que emite hacia el Padre
     // Enviará al padre, el contacto para que actualice datos
-    actualizar() {
+    actualizarDatosUsuario() {
       this.expert.name = this.registerForm.value.name;
       this.expert.surname = this.registerForm.value.surname;
       this.expert.nif = this.registerForm.value.nif;
@@ -109,10 +110,9 @@ export class ExpertDetailPageComponent implements OnInit {
       this.expert.direccion = this.registerForm.value.direccion;
 
       console.log(this.expert);
-
-
-      //this.cambiarContacto.emit(this.expert);
+      this.dataService.modificarUsuario(this.expert)
     }
+
 
     obtenerUsuario(id:any) {
         this.dataService.searchById(Number(id.substr(1))).subscribe((response)=>{
