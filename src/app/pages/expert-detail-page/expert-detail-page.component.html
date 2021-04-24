@@ -95,24 +95,40 @@
             </td>
               </tr>
           </table></div>
-        <form>
-          <mat-form-field appearance="fill">
+
+            <form class="register-form" [formGroup]="registerForm" (submit)="actualizarDatosUsuario()">
+            <mat-form-field appearance="fill">
             <mat-label>Etiquetas Disponibles</mat-label>
-            <mat-select [(ngModel)]="listatagsSelected" name="listaTag">
+            <mat-select [(ngModel)]="listatagsSelected" formControlName="etiqueta">
               <mat-option *ngFor="let listaTag of Listatags" [value]="listaTag.name">
                 {{listaTag.name}}
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <button type="button" disabled mat-raised-button mat-button color="primary" (click)="crearEtiquetaExperto(listatagsSelected)">+</button>
+          <button type="button"  mat-raised-button mat-button color="primary" type="submit">+</button>
 
-        </form>
+            </form>
 
         </div>
     </mat-tab>
     <mat-tab label="Observaciones">
       <div>
-
+        <form class="register-form" [formGroup]="registerForm" (submit)="actualizarDatosUsuario()">
+          <p>
+            Observaciones:
+              <mat-form-field appearance="standard">
+                <mat-label>{{expert.observaciones}}</mat-label>
+                <input matInput placeholder="observaciones" formControlName="observaciones" />
+              </mat-form-field>
+              <p>
+              Motivo Descarte:
+              <mat-form-field appearance="standard">
+                <mat-label>{{expert.estadoMotivo}}</mat-label>
+                <input matInput placeholder="motivo descarte" formControlName="estadoMotivo" />
+              </mat-form-field>
+            </p>
+            <button mat-raised-button color="primary" type="submit">modificar</button>
+        </form>
       </div>
     </mat-tab>
 

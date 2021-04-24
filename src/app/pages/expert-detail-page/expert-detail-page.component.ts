@@ -89,7 +89,9 @@ export class ExpertDetailPageComponent implements OnInit {
         telefono: '',
         correo: '',
         direccion: '',
-        etiqueta: ''
+        etiqueta: '',
+        observaciones: '',
+        estadoMotivo: ''
       });
       }
 
@@ -109,9 +111,27 @@ export class ExpertDetailPageComponent implements OnInit {
       this.expert.telefono = this.registerForm.value.telefono;
       this.expert.correo = this.registerForm.value.correo;
       this.expert.direccion = this.registerForm.value.direccion;
+      this.expert.observaciones = this.registerForm.value.observaciones;
+      this.expert.estadoMotivo = this.registerForm.value.estadoMotivo;
 
+
+      //count number of tags
+      let countTags = -1;
+      for (const key in this.expert.tags){
+      if (this.expert.tags.hasOwnProperty(key)) {
+        countTags++;
+        }
+      }
+
+      if(this.registerForm.value.etiqueta != null){
+      this.expert.tags[countTags+1] = {
+        'name': this.registerForm.value.etiqueta
+        }
+      }
+
+      console.log(this.expert.tags)
       console.log(this.expert);
-      this.dataService.modificarUsuario(this.expert)
+     this.dataService.modificarUsuario(this.expert)
     }
 
 
