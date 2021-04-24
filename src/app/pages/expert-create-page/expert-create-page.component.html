@@ -14,7 +14,7 @@
             <form class="register-form" [formGroup]="registerForm" (submit)="addExperto()">
                   <mat-form-field class="example-full-width">
                     <mat-label>Introduce el Nombre</mat-label>
-                    <input matInput placeholder="Nombre" formControlName="name" [(ngModel)]="name"/>
+                    <input matInput placeholder="Nombre" formControlName="nombre" [(ngModel)]="nombre"/>
                   </mat-form-field>
                   <button mat-raised-button color="primary" type="submit">Crear</button>
             </form>
@@ -29,7 +29,7 @@
 
       <p>
           <mat-form-field appearance="standard">
-            <input matInput placeholder="nombre" formControlName="name" />
+            <input matInput placeholder="nombre" formControlName="nombre" />
           </mat-form-field>
         NIF:
           <mat-form-field appearance="standard">

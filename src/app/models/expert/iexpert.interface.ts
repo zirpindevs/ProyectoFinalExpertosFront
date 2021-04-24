@@ -1,6 +1,6 @@
 export interface IExpert {
   id: number;
-  name: string;
+  nombre: string;
   nif: string;
   telefono: number;
   email: string;

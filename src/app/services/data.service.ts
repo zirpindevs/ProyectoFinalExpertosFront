@@ -21,7 +21,7 @@ export class DataService {
     //   return this.http.get('http://localhost:8080/api/experts');
     // }
 
-  findAll(name: string, limite :number): Observable<any> {
+  findAll(nombre: string, limite :number): Observable<any> {
        return this.http.get(baseURL + '?nombre='+name+'&limite=' + String(limite));
       //  return this.http.get(baseURL);
 

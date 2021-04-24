@@ -39,7 +39,7 @@ export class ExpertDetailPageComponent implements OnInit {
     // Datos que vienen expert-page
     @Input() ExpertDetails = {
         id: '',
-        name: '',
+        nombre: '',
         nif: '',
         telefono: '',
         email: '',
@@ -79,7 +79,7 @@ export class ExpertDetailPageComponent implements OnInit {
 
       this.registerForm = this.formBuilder.group({
         // Here we define the FormControls with the default value
-        name: '',
+        nombre: '',
         nif: '',
         disponibilidad: '',
         estado: '',
@@ -104,7 +104,7 @@ export class ExpertDetailPageComponent implements OnInit {
     // Evento capturado en el Hijo que emite hacia el Padre
     // Enviará al padre, el contacto para que actualice datos
     actualizarDatosUsuario() {
-      this.expert.name = this.registerForm.value.name;
+      this.expert.nombre = this.registerForm.value.nombre;
       this.expert.nif = this.registerForm.value.nif;
       this.expert.disponibilidad = this.registerForm.value.disponibilidad;
       this.expert.estado = this.registerForm.value.estado;

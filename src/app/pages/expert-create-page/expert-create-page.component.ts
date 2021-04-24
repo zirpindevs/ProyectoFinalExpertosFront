@@ -15,7 +15,7 @@ export class ExpertCreatePageComponent implements OnInit {
 
   experts: any = {
     id: '',
-    name: '',
+    nombre: '',
     nif: '',
     telefono: '',
     email: '',
@@ -30,7 +30,7 @@ export class ExpertCreatePageComponent implements OnInit {
     tags: []
   };
 
-  name: string;
+  nombre: string;
   registerForm: FormGroup = new FormGroup({})
 
   loading: boolean = false;
@@ -43,7 +43,7 @@ export class ExpertCreatePageComponent implements OnInit {
     // with the Form Builder
     this.registerForm = this.formBuilder.group({
       // Here we define the FormControls with the default value
-      name: '',
+      nombre: '',
       nif: '',
       disponibilidad: '',
       estado: '',
@@ -63,7 +63,7 @@ export class ExpertCreatePageComponent implements OnInit {
 
 
   addExperto() {
-    this.experts.name = this.registerForm.value.name;
+    this.experts.nombre = this.registerForm.value.nombre;
     this.experts.nif = this.registerForm.value.nif;
     this.experts.disponibilidad = this.registerForm.value.disponibilidad;
     this.experts.estado = this.registerForm.value.estado;
