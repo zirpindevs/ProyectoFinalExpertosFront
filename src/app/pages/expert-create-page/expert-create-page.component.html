@@ -1,26 +1,87 @@
-<h2>Crear experto</h2>
-<div>
-  <button mat-raised-button color="primary" (click)="returnBack()">Volver a Home</button>
-</div>
+<mat-toolbar>
+  <span class="example-spacer">Lista de Expertos
+    <h2>Crear experto</h2>
+  </span>
+  <button mat-raised-button color="primary" class="menu-button" (click)="returnBack()">Volver a Home</button>
 
-  <div class="create-tag-page">
+</mat-toolbar>
+
+
+
+ <!--  <div class="create-tag-page">
 
         <div class="form">
-          <div class="createtag">
-              <div class="createtag-header">
-              <h1> Pagina de Crear Experto </h1>
-
-              </div>
-          </div>
-
-              <form class="register-form" [formGroup]="registerForm" (submit)="addExperto()">
+            <form class="register-form" [formGroup]="registerForm" (submit)="addExperto()">
                   <mat-form-field class="example-full-width">
                     <mat-label>Introduce el Nombre</mat-label>
                     <input matInput placeholder="Nombre" formControlName="name" [(ngModel)]="name"/>
                   </mat-form-field>
                   <button mat-raised-button color="primary" type="submit">Crear</button>
-
-
             </form>
       </div>
+  </div>
+ -->
+
+
+ <div class="centrada">
+
+    <form class="register-form" [formGroup]="registerForm" (submit)="addExperto()">
+
+      <p>
+          <mat-form-field appearance="standard">
+            <input matInput placeholder="nombre" formControlName="name" />
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <input matInput placeholder="apellido" formControlName="surname" />
+          </mat-form-field>
+        </p>
+
+        NIF:
+          <mat-form-field appearance="standard">
+            <input matInput placeholder="nif" formControlName="nif" />
+          </mat-form-field>
+
+      <p>Disponibilidad:
+          <mat-form-field appearance="standard">
+            <select matNativeControl #select formControlName="disponibilidad">
+              <option value="Inmediata">Inmediata</option>
+              <option value="Mañanas">Mañanas</option>
+              <option value="Tardes">Tardes</option>
+              <option value="Completa">Completa</option>
+            </select>              </mat-form-field>
+
+          Estado:
+          <mat-form-field appearance="standard">
+            <select matNativeControl #select formControlName="estado">
+              <option value="validado">Validado</option>
+              <option value="pendiente">Pendiente</option>
+              <option value="descartado">Descartado</option>
+            </select>
+          </mat-form-field>
+
+          Valoracion:
+          <mat-form-field appearance="standard">
+            <input matInput placeholder="valoracion" formControlName="valoracion" />
+          </mat-form-field>
+        </p>
+
+          <a>Datos Contacto</a>
+
+          <p>Telefono:
+          <mat-form-field appearance="standard">
+            <input matInput placeholder="telefono" formControlName="telefono" />
+          </mat-form-field>
+
+          Correo:
+          <mat-form-field appearance="standard">
+            <input matInput placeholder="correo" formControlName="correo" />
+          </mat-form-field>
+
+          Direccion:
+          <mat-form-field appearance="standard">
+            <input matInput placeholder="direccion" formControlName="direccion" />
+          </mat-form-field>
+        </p>
+          <button mat-raised-button color="primary" type="submit">Crear Experto</button>
+        </form>
   </div>

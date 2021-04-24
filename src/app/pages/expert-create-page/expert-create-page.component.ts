@@ -13,6 +13,23 @@ import { Expert } from 'src/app/models/expert/expert.model';
 })
 export class ExpertCreatePageComponent implements OnInit {
 
+  experts: any = {
+    id: '',
+    name: '',
+    surname: '',
+    nif: '',
+    telefono: '',
+    email: '',
+    direccion: '',
+    puntuacion: '',
+    cursos: '',
+    condiciones: '',
+    estado: '',
+    disponibilidad: '',
+    createDate: '',
+    lastUpdate: '',
+    tags: []
+  };
 
   name: string;
   registerForm: FormGroup = new FormGroup({})
@@ -28,6 +45,17 @@ export class ExpertCreatePageComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       // Here we define the FormControls with the default value
       name: '',
+      surname: '',
+      nif: '',
+      disponibilidad: '',
+      estado: '',
+      valoracion: '',
+      telefono: '',
+      correo: '',
+      direccion: '',
+      etiqueta: '',
+      observaciones: '',
+      estadoMotivo: ''
     });
   }
 
@@ -37,6 +65,18 @@ export class ExpertCreatePageComponent implements OnInit {
 
 
   addExperto() {
-    this.dataService.crearEtiqueta(this.name);
+    this.experts.name = this.registerForm.value.name;
+    this.experts.surname = this.registerForm.value.surname;
+    this.experts.nif = this.registerForm.value.nif;
+    this.experts.disponibilidad = this.registerForm.value.disponibilidad;
+    this.experts.estado = this.registerForm.value.estado;
+    this.experts.puntuacion = this.registerForm.value.valoracion;
+    this.experts.telefono = this.registerForm.value.telefono;
+    this.experts.correo = this.registerForm.value.correo;
+    this.experts.direccion = this.registerForm.value.direccion;
+    this.experts.observaciones = this.registerForm.value.observaciones;
+    this.experts.estadoMotivo = this.registerForm.value.estadoMotivo;
+
+    this.dataService.crearExperto(this.experts);
   }
 }

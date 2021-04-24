@@ -52,10 +52,10 @@ export class DataService {
     }
 
 
-  crearEtiqueta(name: String): Observable<Etiqueta> {
-      console.log(name);
-      return this.http.post<Etiqueta>(baseURL, name);
-  }
+    crearExperto(expertToCreate: Expert): Observable<Etiqueta> {
+      console.log(expertToCreate);
+      return this.http.post<Etiqueta>(baseURL, expertToCreate);
+    }
 
     crearEtiquetaUsuario(expert: Expert, addEtiqueta: string){
       const headers = new HttpHeaders().append(
