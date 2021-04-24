@@ -34,16 +34,7 @@ export class TagCreatePageComponent implements OnInit {
 
   addEtiqueta() {
     this.etiquetaService.crearEtiqueta(this.name)
-      .subscribe(
-        (etiqueta: Etiqueta) => this.handleContactSaveResponse(etiqueta),
-        err => this.handleContactSaveError(err)
-      );
-  }
-  handleContactSaveError(err: any): void {
-    throw new Error('Method not implemented.');
-  }
-  handleContactSaveResponse(etiqueta: Etiqueta): void {
-    throw new Error('Method not implemented.');
+      .subscribe();
   }
 
 
