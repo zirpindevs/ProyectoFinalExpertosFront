@@ -97,7 +97,6 @@ export class ExpertDetailPageComponent implements OnInit {
         this.location.back();
       }
 
-
       refreshComponent(){
         this.router.navigate([this.router.url])
      }
