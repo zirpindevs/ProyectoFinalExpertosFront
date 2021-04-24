@@ -30,32 +30,29 @@ export class DataService {
   findAllEstado(estado: string, limite :number): Observable<any> {
     return this.http.get(baseURL + '?estado='+estado+'&limite=' + String(limite));
    //  return this.http.get(baseURL);
-
-}
-
-  searchById(id: number): Observable<any> {
-    return this.http.get(`${baseURL}/${id}`);
   }
 
-
-  deleteExpertById(id: number): Observable<any> {
-    return this.http.delete(`${baseURL}/${id}`);
-  }
-
-
-  createExperto(expert: Expert): Promise<Array<Expert>> {
-    let empHeaders = new Headers({ 'Content-Type': 'application/json' });
-    return this.http.post(`${baseURL}`, JSON.stringify(expert))
-    .toPromise()
-    .then(response => response as Expert[])
-    .catch(this.handleError);
+    searchById(id: number): Observable<any> {
+      return this.http.get(`${baseURL}/${id}`);
     }
 
 
-    crearExperto(expertToCreate: Expert): Observable<Etiqueta> {
-      console.log(expertToCreate);
-      return this.http.post<Etiqueta>(baseURL, expertToCreate);
+    deleteExpertById(id: number): Observable<any> {
+      return this.http.delete(`${baseURL}/${id}`);
     }
+
+    crearExperto(expertToCreate: Expert){
+      const headers = new HttpHeaders().append(
+      'Content-Type',
+      'application/json'
+    );
+
+      return this.http.post<any>(baseURL, expertToCreate,
+      {        headers: headers,
+      })
+      .subscribe((res) => console.log(res));
+      }
+
 
     crearEtiquetaUsuario(expert: Expert, addEtiqueta: string){
       const headers = new HttpHeaders().append(
@@ -74,24 +71,20 @@ export class DataService {
       }
 
 
+      modificarUsuario(modifiedExpert: Expert){
+        const headers = new HttpHeaders().append(
+        'Content-Type',
+        'application/json'
+      );
 
-    modificarUsuario(modifiedExpert: Expert){
-      const headers = new HttpHeaders().append(
-      'Content-Type',
-      'application/json'
-    );
+      const params = new HttpParams()
+        .append('id', String(modifiedExpert.id));
 
-    const params = new HttpParams()
-      .append('id', String(modifiedExpert.id));
-
-      return this.http.put<any>(baseURL+'/'+modifiedExpert.id, modifiedExpert,
-      {        headers: headers,
-      })
-      .subscribe((res) => console.log(res));
-      }
-
-
-
+        return this.http.put<any>(baseURL+'/'+modifiedExpert.id, modifiedExpert,
+        {        headers: headers,
+        })
+        .subscribe((res) => console.log(res));
+        }
 
 
 
