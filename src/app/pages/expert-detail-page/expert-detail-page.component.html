@@ -1,7 +1,7 @@
 
 <div style="text-align:center">
   <h2>Informacion del Experto: {{expert.id}} </h2>
-<h2>{{expert.name}} {{expert.surname}}</h2>
+<h2>{{expert.name}}</h2>
 
   <h5>Fecha Creacion: {{expert.createdDate}}</h5>
   <h5>Ultima Actualizacion: {{expert.last_updated}}</h5>
@@ -23,10 +23,6 @@
               <mat-form-field appearance="standard">
                 <mat-label>{{expert.name}}</mat-label>
                 <input matInput placeholder="nombre" formControlName="name" />
-              </mat-form-field>
-              <mat-form-field appearance="standard">
-                <mat-label>{{expert.surname}}</mat-label>
-                <input matInput placeholder="apellido" formControlName="surname" />
               </mat-form-field>
             </p>
 

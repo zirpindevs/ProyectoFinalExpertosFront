@@ -40,7 +40,6 @@ export class ExpertDetailPageComponent implements OnInit {
     @Input() ExpertDetails = {
         id: '',
         name: '',
-        surname: '',
         nif: '',
         telefono: '',
         email: '',
@@ -81,7 +80,6 @@ export class ExpertDetailPageComponent implements OnInit {
       this.registerForm = this.formBuilder.group({
         // Here we define the FormControls with the default value
         name: '',
-        surname: '',
         nif: '',
         disponibilidad: '',
         estado: '',
@@ -107,7 +105,6 @@ export class ExpertDetailPageComponent implements OnInit {
     // Enviará al padre, el contacto para que actualice datos
     actualizarDatosUsuario() {
       this.expert.name = this.registerForm.value.name;
-      this.expert.surname = this.registerForm.value.surname;
       this.expert.nif = this.registerForm.value.nif;
       this.expert.disponibilidad = this.registerForm.value.disponibilidad;
       this.expert.estado = this.registerForm.value.estado;

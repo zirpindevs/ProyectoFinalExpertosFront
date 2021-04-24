@@ -14,7 +14,7 @@ import { Expert } from 'src/app/models/expert/expert.model';
 })
 export class ExpertPageComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'surname', 'estado', 'etiquetas', 'puntuacion', 'actions'];
+  displayedColumns: string[] = ['name', 'estado', 'etiquetas', 'puntuacion', 'actions'];
   dataSource :MatTableDataSource<Expert>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -22,7 +22,6 @@ export class ExpertPageComponent implements OnInit {
   experts: any = {
     id: '',
     name: '',
-    surname: '',
     nif: '',
     telefono: '',
     email: '',

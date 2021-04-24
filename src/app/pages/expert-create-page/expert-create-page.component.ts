@@ -16,7 +16,6 @@ export class ExpertCreatePageComponent implements OnInit {
   experts: any = {
     id: '',
     name: '',
-    surname: '',
     nif: '',
     telefono: '',
     email: '',
@@ -45,7 +44,6 @@ export class ExpertCreatePageComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       // Here we define the FormControls with the default value
       name: '',
-      surname: '',
       nif: '',
       disponibilidad: '',
       estado: '',
@@ -66,7 +64,6 @@ export class ExpertCreatePageComponent implements OnInit {
 
   addExperto() {
     this.experts.name = this.registerForm.value.name;
-    this.experts.surname = this.registerForm.value.surname;
     this.experts.nif = this.registerForm.value.nif;
     this.experts.disponibilidad = this.registerForm.value.disponibilidad;
     this.experts.estado = this.registerForm.value.estado;

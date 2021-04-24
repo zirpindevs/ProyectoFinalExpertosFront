@@ -3,7 +3,6 @@ import {IExpert} from './iexpert.interface';
 export class Expert implements IExpert{
     id: number;
     name: string;
-    surname: string;
     nif: string;
     telefono: number;
     email: string;
@@ -22,11 +21,10 @@ export class Expert implements IExpert{
 
 
 
-    constructor(id: number, name: string, surname: string, nif: string, condiciones: number, cursos: string, estado: string, disponibilidad: string,
+    constructor(id: number, name: string, nif: string, condiciones: number, cursos: string, estado: string, disponibilidad: string,
       correo: string, observaciones: string, estadoMotivo: string, createdDeDate: string, telefono: number, email: string, direccion: string, puntuacion: string, lastUpdate: String){
     this.id = id;
     this.name = name;
-    this.surname = surname;
     this.nif = nif;
     this.telefono = telefono;
     this.email = email;
