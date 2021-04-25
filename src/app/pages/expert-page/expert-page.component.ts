@@ -55,7 +55,6 @@ export class ExpertPageComponent implements OnInit {
   count = 0;
   pageSizes = [5, 10, 25];
 
-  length = 25;
   pageSize = 10;
   pageIndex = 0;
   pageSizeOptions = [5, 10, 25];
@@ -84,16 +83,11 @@ export class ExpertPageComponent implements OnInit {
   }
 
 
-  getRequestParams(buscaNombre: string, buscaEstado: string, page: number, pageSize: number): any {
-    // tslint:disable-next-line:prefer-const
+  getRequestParams(buscaNombre: string, page: number, pageSize: number): any {
     let params: any = {};
 
     if (buscaNombre) {
       params[`nombre`] = buscaNombre;
-    }
-
-    if (buscaEstado) {
-      params[`estado`] = buscaEstado;
     }
 
     if (page) {
@@ -108,7 +102,7 @@ export class ExpertPageComponent implements OnInit {
   }
 
   retrieveExperts(): void {
-    const params = this.getRequestParams(this.experts.nombre, this.experts.estado, this.page, this.pageSize);
+    const params = this.getRequestParams(this.experts.nombre, this.page, this.pageSize);
 
     this.dataService.getAll(params)
     .subscribe(
@@ -178,7 +172,7 @@ export class ExpertPageComponent implements OnInit {
           count++;
         }
 
-        this.length = count;
+        // this.length = count;
       }
 
     },
@@ -207,7 +201,7 @@ export class ExpertPageComponent implements OnInit {
           count++;
         }
 
-        this.length = count;
+        // this.length = count;
       }
     },
     (error) => {                              //error() callback
