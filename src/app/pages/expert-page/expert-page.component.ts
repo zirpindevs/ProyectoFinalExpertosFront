@@ -62,8 +62,6 @@ export class ExpertPageComponent implements OnInit {
 
   constructor(private dataService: DataService, private router: Router, private location: Location) {
 
-    //const users = Array.from({length: 100}, (_, k) => this.createNewUser(k + 1));
-
     this.obtenerLista("");
 
     //  this.dataSource = new MatTableDataSource(this.experts);
@@ -83,11 +81,15 @@ export class ExpertPageComponent implements OnInit {
   }
 
 
-  getRequestParams(buscaNombre: string, page: number, pageSize: number): any {
+  getRequestParams(buscaNombre: string, buscaEstado: string, page: number, pageSize: number): any {
     let params: any = {};
 
     if (buscaNombre) {
       params[`nombre`] = buscaNombre;
+    }
+
+    if (buscaEstado) {
+      params[`estado`] = buscaEstado;
     }
 
     if (page) {
@@ -102,7 +104,7 @@ export class ExpertPageComponent implements OnInit {
   }
 
   retrieveExperts(): void {
-    const params = this.getRequestParams(this.experts.nombre, this.page, this.pageSize);
+    const params = this.getRequestParams(this.experts.nombre, this.experts.producto, this.page, this.pageSize);
 
     this.dataService.getAll(params)
     .subscribe(
@@ -139,7 +141,8 @@ export class ExpertPageComponent implements OnInit {
     const filtro = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filtro.trim().toLowerCase();
     console.log(this.dataSource.filter);
-    this.obtenerLista(this.dataSource.filter);
+    this.experts.nombre = this.dataSource.filter;
+    this.retrieveExperts();
   }
 
 
@@ -147,7 +150,10 @@ export class ExpertPageComponent implements OnInit {
     const filtro = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filtro.trim().toLowerCase();
     console.log(this.dataSource.filter);
-    this.obtenerListaEstado(this.dataSource.filter);
+    this.experts.estado = this.dataSource.filter;
+    this.retrieveExperts();
+
+    // this.obtenerListaEstado(this.dataSource.filter);
   }
 
   returnBack() {
