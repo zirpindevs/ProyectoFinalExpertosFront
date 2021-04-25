@@ -28,6 +28,7 @@ import { TagPageComponent } from './pages/tag-page/tag-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { DataService } from './services/data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 //Material Select Input and Realted Important Modules
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -75,7 +76,8 @@ import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-cre
     MatGridListModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatChipsModule
+    MatChipsModule,
+    NgxPaginationModule
    ],
   providers: [DataService],
   bootstrap: [AppComponent]

@@ -46,6 +46,15 @@ export class ExpertPageComponent implements OnInit {
   loading: boolean = false;
   errorMessage = "";
 
+
+  currentExpert?: Expert;
+  currentIndex = -1;
+  title = '';
+
+  page = 1;
+  count = 0;
+  pageSizes = [5, 10, 25];
+
   length = 25;
   pageSize = 10;
   pageIndex = 0;
@@ -62,6 +71,9 @@ export class ExpertPageComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
+    this.retrieveExperts();
+
     this.dataSource = new MatTableDataSource(this.experts);
 
 
@@ -71,10 +83,58 @@ export class ExpertPageComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+
+  getRequestParams(buscaNombre: string, page: number, pageSize: number): any {
+    // tslint:disable-next-line:prefer-const
+    let params: any = {};
+
+    if (buscaNombre) {
+      params[`nombre`] = buscaNombre;
+    }
+
+    if (page) {
+      params[`pagina`] = page - 1;
+    }
+
+    if (pageSize) {
+      params[`tamano`] = pageSize;
+    }
+
+    return params;
+  }
+
+  retrieveExperts(): void {
+    const params = this.getRequestParams(this.experts.nombre, this.page, this.pageSize);
+
+    this.dataService.getAll(params)
+    .subscribe(
+      response => {
+        const { experts, totalItems } = response;
+        this.experts = experts;
+        this.count = totalItems;
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
+
   handlePageEvent(event: PageEvent) {
       this.pageSize = event.pageSize;
       this.pageIndex = event.pageIndex;
       this.obtenerLista(this.dataSource.filter);
+  }
+
+  handlePageChange(event: number): void {
+    this.page = event;
+    this.retrieveExperts();
+  }
+
+  handlePageSizeChange(event: any): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+    this.retrieveExperts();
   }
 
   filtrarNombre(event: Event) {
@@ -102,7 +162,10 @@ export class ExpertPageComponent implements OnInit {
     this.dataService.findAll(filter_name, this.pageSize).subscribe((response)=>{
       console.log('response received')
       console.log(response);
-      this.experts = response;
+      console.log(response.currentPage);
+
+      this.experts = response.currentPage;
+      this.pageSize = response.totalItems;
 
       //count number of objects
       let count = 0;
