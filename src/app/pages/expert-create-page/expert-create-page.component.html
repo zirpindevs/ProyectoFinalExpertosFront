@@ -1,9 +1,14 @@
 <div class="centrada">
 <mat-toolbar>
-  <span class="example-spacer">Lista de Expertos
+  <span>
+    <a href="/expertos">
+      <img src="../assets/back_arrow.png"/>
+      Volver a lista de Expertos</a>
+
+  <!-- <button mat-raised-button (click)="returnBack()">Volver a Home</button> -->
+
     <h2>Crear experto</h2>
   </span>
-  <button mat-raised-button color="primary" class="menu-button" (click)="returnBack()">Volver a Home</button>
 
 </mat-toolbar>
 
@@ -11,17 +16,17 @@
 
       <p>
         Nombre:
-          <mat-form-field appearance="standard">
+          <mat-form-field appearance="outline">
             <input matInput placeholder="nombre" formControlName="nombre" />
           </mat-form-field>
         NIF:
-          <mat-form-field appearance="standard">
+          <mat-form-field appearance="outline">
             <input matInput placeholder="nif" formControlName="nif" />
           </mat-form-field>
         </p>
 
       <p>Disponibilidad:
-          <mat-form-field appearance="standard">
+          <mat-form-field appearance="outline">
             <select matNativeControl #select formControlName="disponibilidad">
               <option value="Inmediata">Inmediata</option>
               <option value="Mañanas">Mañanas</option>
@@ -30,7 +35,7 @@
             </select>              </mat-form-field>
 
           Estado:
-          <mat-form-field appearance="standard">
+          <mat-form-field appearance="outline">
             <select matNativeControl #select formControlName="estado">
               <option value="validado">Validado</option>
               <option value="pendiente">Pendiente</option>
@@ -39,7 +44,7 @@
           </mat-form-field>
 
           Valoracion:
-          <mat-form-field appearance="standard">
+          <mat-form-field appearance="outline">
             <input matInput placeholder="valoracion" formControlName="valoracion" />
           </mat-form-field>
         </p>
@@ -47,20 +52,20 @@
           <a>Datos Contacto</a>
 
           <p>Telefono:
-          <mat-form-field appearance="standard">
+          <mat-form-field appearance="outline">
             <input matInput placeholder="telefono" formControlName="telefono" />
           </mat-form-field>
 
           Correo:
-          <mat-form-field appearance="standard">
+          <mat-form-field appearance="outline">
             <input matInput placeholder="correo" formControlName="correo" />
           </mat-form-field>
 
           Direccion:
-          <mat-form-field appearance="standard">
+          <mat-form-field appearance="outline">
             <input matInput placeholder="direccion" formControlName="direccion" />
           </mat-form-field>
         </p>
-          <button mat-raised-button color="primary" type="submit">Crear Experto</button>
+          <button mat-raised-button class="create-button" type="submit">Crear Experto</button>
         </form>
   </div>
