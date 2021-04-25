@@ -1,89 +1,10 @@
-<!--
-   <p>
   <mat-toolbar class="centrada">
 
-    <span >Lista de Expertos
-    <h5>{{this.length}} Candidatos </h5>
-    </span>
+    <span >Lista de Expertos </span>
 
 
   <button mat-raised-button class="menu-button" color="expert" routerLink='/expertos/crear'>crear Expertos</button>
   </mat-toolbar>
-
-  <div class="filters">
-      <mat-form-field>
-        <mat-label>Nombre</mat-label>
-        <input matInput (keyup)="filtrarNombre($event)" placeholder="nombre" #input>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Estado</mat-label>
-        <select matNativeControl (change)="filtrarEstado($event)" #select>Estado
-          <option value="validado">Validado</option>
-          <option value="pendiente">Pendiente</option>
-          <option value="descartado">Descartado</option>
-        </select>
-      </mat-form-field>
-</div>
-
-  <table mat-table [dataSource]="experts" matSort>
-  <ng-container matColumnDef="nombre">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>
-
-      Nombre</th>
-    <td mat-cell *matCellDef="let row"> {{row.nombre}} </td>
-  </ng-container>
-
-    <ng-container matColumnDef="estado">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          <mat-label>Estado</mat-label>
-         </th>
-        <td mat-cell *matCellDef="let row" [style.color]="row">
-              {{row.estado}}
-           </td>
-      </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-      <ng-container matColumnDef="etiquetas" >
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tareas </th>
-        <td mat-cell *matCellDef="let row" [style.color]="row"  >
-          <mat-chip-list>
-            <a *ngFor="let tag of row.tags">
-              <mat-chip>{{tag.name}} </mat-chip>
-           </a>
-         </mat-chip-list>
-        </td>
-      </ng-container>
-
-  <ng-container matColumnDef="puntuacion">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Valoracion</th>
-    <td mat-cell *matCellDef="let row"> {{row.puntuacion}} </td>
-  </ng-container>
-
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
-      <td mat-cell *matCellDef="let row">
-        <button mat-raised-button color="detail" routerLink='/expertos/detalles/:{{row.id}}' [state]="experts">Detalles</button>      </td>
-    </ng-container>
-
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No se encuentran datos con los filtros seleccionados"{{input.value}} {{select.value}}"</td>
-      </tr>
-  </table>
-
-    <div>
-      <mat-paginator
-        (page)="handlePageEvent($event)"
-        [length]="length"
-        [pageSize]="pageSize"
-        [showFirstLastButtons]="showFirstLastButtons"
-        [pageSizeOptions]="pageSizeOptions"
-        [pageIndex]="pageIndex"
-        >
-      </mat-paginator>
-
-  </div> -->
 
 
 <div>
