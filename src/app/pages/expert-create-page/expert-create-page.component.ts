@@ -55,7 +55,13 @@ export class ExpertCreatePageComponent implements OnInit {
       observaciones: '',
       estadoMotivo: ''
     });
-  }
+
+      this.registerForm = this.formBuilder.group({
+      nombre: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
+      telefono: ['', Validators.compose([Validators.required, Validators.minLength(9), Validators.maxLength(12)])]
+      });
+    }
+
 
   returnBack() {
     this.location.back();

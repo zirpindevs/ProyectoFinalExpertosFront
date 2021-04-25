@@ -1,3 +1,4 @@
+<div class="centrada">
 <mat-toolbar>
   <span class="example-spacer">Lista de Expertos
     <h2>Crear experto</h2>
@@ -6,28 +7,10 @@
 
 </mat-toolbar>
 
-
-
- <!--  <div class="create-tag-page">
-
-        <div class="form">
-            <form class="register-form" [formGroup]="registerForm" (submit)="addExperto()">
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Introduce el Nombre</mat-label>
-                    <input matInput placeholder="Nombre" formControlName="nombre" [(ngModel)]="nombre"/>
-                  </mat-form-field>
-                  <button mat-raised-button color="primary" type="submit">Crear</button>
-            </form>
-      </div>
-  </div>
- -->
-
-
- <div class="centrada">
-
     <form class="register-form" [formGroup]="registerForm" (submit)="addExperto()">
 
       <p>
+        Nombre:
           <mat-form-field appearance="standard">
             <input matInput placeholder="nombre" formControlName="nombre" />
           </mat-form-field>
