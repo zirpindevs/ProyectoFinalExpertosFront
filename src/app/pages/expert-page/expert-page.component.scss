@@ -14,14 +14,6 @@ td, th {
   width: 10%;
 }
 
-.mat-paginator{
-  width: 50%;
-  position: relative;
-  left: 150px;
-  bottom: 550px;
-}
-
-
 .mat-detail {
   background-color: green;
   color: #fff;
@@ -44,5 +36,25 @@ td, th {
 
 button.menu-button{
   position: relative;
-  left: 1600px;
+  left: 1350px;
+}
+
+ .mat-form-field{
+  font-size: 15px;
+}
+
+.filters{
+left: 100px;
+position: relative;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-pack: justify;
+-ms-flex-pack: justify;
+justify-content: space-between;
+-webkit-box-align: center;
+-ms-flex-align: center;
+align-items: center;
+margin-bottom: 15px;
+border-right-width: 5px;
 }
