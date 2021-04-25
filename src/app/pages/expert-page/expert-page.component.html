@@ -7,35 +7,38 @@
 
   <!-- Navigate create expert -->
   <button mat-raised-button class="menu-button" color="expert" routerLink='/expertos/crear'>crear Expertos</button>
-
   </mat-toolbar>
-</p>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Nombre</mat-label>
-    <input matInput (keyup)="filtrarNombre($event)" placeholder="nombre" #input>
-  </mat-form-field>
+  <div class="filters">
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput (keyup)="filtrarNombre($event)" placeholder="nombre" #input>
+      </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Estado</mat-label>
-    <select matNativeControl (change)="filtrarEstado($event)" #select>Estado
-      <option value="validado">Validado</option>
-      <option value="pendiente">Pendiente</option>
-      <option value="descartado">Descartado</option>
-    </select>
-  </mat-form-field>
+      <mat-form-field>
+        <mat-label>Estado</mat-label>
+        <select matNativeControl (change)="filtrarEstado($event)" #select>Estado
+          <option value="validado">Validado</option>
+          <option value="pendiente">Pendiente</option>
+          <option value="descartado">Descartado</option>
+        </select>
+      </mat-form-field>
+</div>
 
   <table mat-table [dataSource]="experts" matSort>
-
   <!-- Name Column -->
   <ng-container matColumnDef="nombre">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+
+      Nombre</th>
     <td mat-cell *matCellDef="let row"> {{row.nombre}} </td>
   </ng-container>
 
     <!-- estado Column -->
     <ng-container matColumnDef="estado">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <mat-label>Estado</mat-label>
+          Estado </th>
         <td mat-cell *matCellDef="let row" [style.color]="row"> {{row.estado}} </td>
       </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
