@@ -38,8 +38,15 @@
     <ng-container matColumnDef="estado">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <mat-label>Estado</mat-label>
-          Estado </th>
-        <td mat-cell *matCellDef="let row" [style.color]="row"> {{row.estado}} </td>
+         </th>
+        <td mat-cell *matCellDef="let row" [style.color]="row">
+          <mat-chip-list class="mat-chip-list-stacked" aria-label="Color selection">
+            <mat-chip color="{{row.estado}}">
+              {{row.estado}}
+             </mat-chip>
+          </mat-chip-list>
+
+           </td>
       </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -48,9 +55,11 @@
       <ng-container matColumnDef="etiquetas" >
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Tareas </th>
         <td mat-cell *matCellDef="let row" [style.color]="row"  >
-        <a *ngFor="let tag of row.tags">
-          {{tag.name}}
-        </a>
+          <mat-chip-list>
+            <a *ngFor="let tag of row.tags">
+              <mat-chip>{{tag.name}} </mat-chip>
+           </a>
+         </mat-chip-list>
         </td>
       </ng-container>
 

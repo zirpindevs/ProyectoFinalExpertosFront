@@ -22,7 +22,7 @@ export class DataService {
     // }
 
   findAll(nombre: string, limite :number): Observable<any> {
-       return this.http.get(baseURL + '?nombre='+name+'&limite=' + String(limite));
+       return this.http.get(baseURL + '?nombre='+nombre+'&limite=' + String(limite));
       //  return this.http.get(baseURL);
 
   }

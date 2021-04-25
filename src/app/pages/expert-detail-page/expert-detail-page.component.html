@@ -1,7 +1,8 @@
-
-<div style="text-align:center">
-  <h2>Informacion del Experto: {{expert.id}} </h2>
-<h2>{{expert.name}}</h2>
+<div class="centrada">
+  <h2>Informacion del Experto:
+    <p> {{expert.nombre}} </p>
+  </h2>
+  <h2>{{expert.name}}</h2>
 
   <h5>Fecha Creacion: {{expert.createdDate}}</h5>
   <h5>Ultima Actualizacion: {{expert.last_updated}}</h5>
@@ -10,7 +11,6 @@
     <button mat-raised-button color="primary" (click)="returnBack()">Volver a Lista de Expertos</button>
   </div>
 
-  </div>
   <mat-tab-group animationDuration="0ms">
 
     <mat-tab label="Datos Personales">
@@ -81,8 +81,6 @@
             </p>
               <button mat-raised-button color="primary" type="submit">modificar</button>
             </form>
-
-
       </div>
     </mat-tab>
     <mat-tab label="Etiquetas">
@@ -93,12 +91,14 @@
           <table>
             <tr *ngFor="let tag of tags">
               <td>
-                  <li>    {{tag.name}}
+                <mat-chip-list>
+                  <mat-chip> {{tag.name}} </mat-chip>
                   <button type="button" disabled mat-raised-button mat-button color="warn" (click)="borrarEtiquetaxperto(tag)">-</button>
-                </li>
+                </mat-chip-list>
             </td>
               </tr>
-          </table></div>
+          </table>
+        </div>
 
             <form class="register-form" [formGroup]="registerForm" (submit)="actualizarDatosUsuario()">
             <mat-form-field appearance="fill">
@@ -113,7 +113,7 @@
 
             </form>
 
-        </div>
+      </div>
     </mat-tab>
     <mat-tab label="Observaciones">
       <div>
@@ -137,3 +137,4 @@
     </mat-tab>
 
   </mat-tab-group>
+</div>

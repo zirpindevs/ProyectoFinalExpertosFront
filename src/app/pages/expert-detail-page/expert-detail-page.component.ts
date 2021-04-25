@@ -5,11 +5,15 @@ import { DataService } from 'src/app/services/data.service';
 import { EtiquetasService } from 'src/app/services/etiquetas.service';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
-
-
+import {ThemePalette} from '@angular/material/core';
 
 import { Expert } from 'src/app/models/expert/expert.model';
 import { Etiqueta } from 'src/app/models/etiqueta/etiqueta.model';
+
+export interface ChipColor {
+  name: string;
+  color: ThemePalette;
+}
 
 @Component({
   selector: 'app-expert-detail-page',
@@ -36,6 +40,11 @@ export class ExpertDetailPageComponent implements OnInit {
   loading: boolean = false;
   errorMessage = "";
 
+  availableColors: ChipColor[] = [
+    {name: 'descartado', color: undefined},
+    {name: 'validado', color: 'primary'},
+    {name: 'pendiente', color: 'accent'},
+  ];
     // Datos que vienen expert-page
     @Input() ExpertDetails = {
         id: '',
