@@ -92,60 +92,78 @@
 <div class="centrada">
 
   <div class="list row">
-    <div class="col-md-8">
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search by title"
-          [(ngModel)]="experts.nombre"
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            (click)="retrieveExperts()"
-          >
-            Search
-          </button>
-        </div>
-      </div>
+    <div class="filters">
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput (keyup)="filtrarNombre($event)" placeholder="nombre" #input>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Estado</mat-label>
+        <select matNativeControl (change)="filtrarEstado($event)" #select>Estado
+          <option value="validado">Validado</option>
+          <option value="pendiente">Pendiente</option>
+          <option value="descartado">Descartado</option>
+        </select>
+      </mat-form-field>
+</div>
+
+      <table class="col-md-6"  mat-table [dataSource]="experts" matSort>
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+
+            Nombre</th>
+          <td mat-cell *matCellDef="let row"> {{row.nombre}} </td>
+        </ng-container>
+
+          <ng-container matColumnDef="estado">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                <mat-label>Estado</mat-label>
+               </th>
+              <td mat-cell *matCellDef="let row" [style.color]="row">
+                    {{row.estado}}
+                 </td>
+            </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <ng-container matColumnDef="etiquetas" >
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Tareas </th>
+              <td mat-cell *matCellDef="let row" [style.color]="row"  >
+                <mat-chip-list>
+                  <a *ngFor="let tag of row.tags">
+                    <mat-chip>{{tag.name}} </mat-chip>
+                 </a>
+               </mat-chip-list>
+              </td>
+            </ng-container>
+
+        <ng-container matColumnDef="puntuacion">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Valoracion</th>
+          <td mat-cell *matCellDef="let row"> {{row.puntuacion}} </td>
+        </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+            <td mat-cell *matCellDef="let row">
+              <button mat-raised-button color="detail" routerLink='/expertos/detalles/:{{row.id}}' [state]="experts">Detalles</button>      </td>
+          </ng-container>
+
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">No se encuentran datos con los filtros seleccionados"{{input.value}} {{select.value}}"</td>
+            </tr>
+
+      </table>
+
     </div>
 
-    <div class="col-md-12">
+    <div class="paginacion">
       <pagination-controls
         previousLabel="Prev"
         nextLabel="Next"
         [responsive]="true"
         (pageChange)="handlePageChange($event)"
       ></pagination-controls>
-    </div>
-
-    <div class="col-md-6">
-      <h4>Tutorials List</h4>
-
-      <ul class="list-group">
-        <li
-          class="list-group-item"
-          *ngFor="
-            let expert of experts | paginate : {
-                    itemsPerPage: pageSize,
-                    currentPage: page,
-                    totalItems: count
-                  };
-            let i = index
-          "
-          [class.active]="i == currentIndex"
-
-        >
-          {{ expert.nombre }}
-        </li>
-      </ul>
-    </div>
-    ...
-
-    <div class="mt-3">
-      ...
 
       Elementos por Pagina:
       <select (change)="handlePageSizeChange($event)">
@@ -154,7 +172,6 @@
         </option>
       </select>
     </div>
-  </div>
-
-
 </div>
+
+

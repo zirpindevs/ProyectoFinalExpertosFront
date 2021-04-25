@@ -84,12 +84,16 @@ export class ExpertPageComponent implements OnInit {
   }
 
 
-  getRequestParams(buscaNombre: string, page: number, pageSize: number): any {
+  getRequestParams(buscaNombre: string, buscaEstado: string, page: number, pageSize: number): any {
     // tslint:disable-next-line:prefer-const
     let params: any = {};
 
     if (buscaNombre) {
       params[`nombre`] = buscaNombre;
+    }
+
+    if (buscaEstado) {
+      params[`estado`] = buscaEstado;
     }
 
     if (page) {
@@ -104,7 +108,7 @@ export class ExpertPageComponent implements OnInit {
   }
 
   retrieveExperts(): void {
-    const params = this.getRequestParams(this.experts.nombre, this.page, this.pageSize);
+    const params = this.getRequestParams(this.experts.nombre, this.experts.estado, this.page, this.pageSize);
 
     this.dataService.getAll(params)
     .subscribe(
