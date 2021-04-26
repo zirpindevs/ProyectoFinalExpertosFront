@@ -6,10 +6,7 @@
   <button mat-raised-button class="menu-button" color="expert" routerLink='/expertos/crear'>crear Expertos</button>
   </mat-toolbar>
 
-
-<div>
-
-  <div class="list row">
+    <div class="list row">
     <div class="filters">
       <mat-form-field>
         <mat-label>Nombre</mat-label>
@@ -78,9 +75,9 @@
                   <button mat-raised-button color="detail" routerLink='/expertos/detalles/:{{row.id}}' [state]="experts">Detalles</button>      </td>
               </ng-container>
 
-                <!-- <tr class="mat-row" *matNoDataRow>
+                <tr class="mat-row" *matNoDataRow>
                   <td class="mat-cell" colspan="4">No se encuentran datos con los filtros seleccionados"{{input.value}} {{select.value}}"</td>
-                </tr> -->
+                </tr>
             </table>
       </div>
 

@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 import {Expert} from "../models/expert/expert.model"
 import { Etiqueta } from '../models/etiqueta/etiqueta.model';
 
-const baseURL = 'https://proyectofinal1234.ddns.net:8080/api/expertos';
+// const baseURL = 'https://proyectofinal1234.ddns.net:8080/api/expertos';
+const baseURL = 'https://localhost:8080/api/expertos';
+
 
 @Injectable({
   providedIn: 'root'
@@ -95,7 +97,6 @@ export class DataService {
         }
 
 
-
     AddTag(expert: Expert, etiqueta: Etiqueta): Promise<Array<Expert>> {
       let empHeaders = new Headers({ 'Content-Type': 'application/json' });
       return this.http.post(`${baseURL}`, JSON.stringify(expert))
@@ -107,9 +108,6 @@ export class DataService {
     update(id: number, data: any): Observable<any> {
       return this.http.put(`${baseURL}/${id}`, data);
     }
-
-
-
 
     private handleError(error: any): Promise<Array<any>> {
       console.error('An error occurred', error);

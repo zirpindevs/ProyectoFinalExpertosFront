@@ -104,8 +104,8 @@ export class ExpertPageComponent implements OnInit {
   }
 
   retrieveExperts(): void {
-    const params = this.getRequestParams(this.experts.nombre, this.experts.producto, this.page, this.pageSize);
-
+    const params = this.getRequestParams(this.experts.nombre, this.experts.estado, this.page, this.pageSize);
+    console.log(params);
     this.dataService.getAll(params)
     .subscribe(
       response => {
