@@ -22,6 +22,7 @@ export class EtiquetasService {
 
 
 findAllTags(): Observable<any> {
+  headers.append('Access-Control-Allow-Origin', '*');
     return this.http.get(baseURLTag);
 }
 

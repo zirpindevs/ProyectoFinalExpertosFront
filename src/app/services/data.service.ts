@@ -22,6 +22,7 @@ export class DataService {
     // }
 
 
+
   getAll(params: any): Observable<any> {
       return this.http.get<any>(baseURL, { params });
     }

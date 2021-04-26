@@ -39,6 +39,7 @@ import { ExpertDetailPageComponent } from './pages/expert-detail-page/expert-det
 import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.component';
 import { TagDialogDeleteComponent } from './pages/tag-dialog-delete/tag-dialog-delete.component';
 import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-create-page.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -77,8 +78,15 @@ import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-cre
     MatToolbarModule,
     MatSidenavModule,
     MatChipsModule,
-    NgxPaginationModule
-   ],
+    NgxPaginationModule,
+    RouterModule.forRoot([
+      { path: '', redirectTo: '/home', pathMatch: 'full' },
+      { path: 'home', component: HomePageComponent },
+      { path: 'expertos', component: ExpertPageComponent },
+      { path: 'etiquetas', component: TagPageComponent },
+
+
+    ]),   ],
   providers: [DataService],
   bootstrap: [AppComponent]
 })
