@@ -1,1 +1,30 @@
-<p>login-page works!</p>
+<div class="centrada">
+  <div class="login-page">
+    <div class="form">
+      <div class="login">
+        <div class="login-header">
+          <h3>LOGIN</h3>
+          <p>Introduce tus credenciales para logearte.</p>
+        </div>
+      </div>
+      <form class="login-form" [formGroup]="loginForm" (submit)="login()">
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Introduce tu email</mat-label>
+          <input matInput formControlName="username" placeholder="email">
+        </mat-form-field>
+
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Introduce tu password</mat-label>
+            <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+          </mat-form-field>
+        </div>
+
+        <button mat-raised-button color="primary" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+
+

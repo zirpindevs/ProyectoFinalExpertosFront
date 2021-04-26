@@ -58,7 +58,7 @@ export class ExpertCreatePageComponent implements OnInit {
 
       this.registerForm = this.formBuilder.group({
       nombre: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
-      telefono: ['', Validators.compose([Validators.required, Validators.minLength(3)])]
+      telefono: ['', Validators.compose([Validators.required, Validators.minLength(9), Validators.maxLength(12)])]
       });
     }
 

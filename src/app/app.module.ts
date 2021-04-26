@@ -40,6 +40,7 @@ import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.
 import { TagDialogDeleteComponent } from './pages/tag-dialog-delete/tag-dialog-delete.component';
 import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-create-page.component';
 import { RouterModule } from '@angular/router';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { RouterModule } from '@angular/router';
     ExpertDetailPageComponent,
     TagCreatePageComponent,
     TagDialogDeleteComponent,
-    ExpertCreatePageComponent
+    ExpertCreatePageComponent,
+    NotFoundPageComponent,
     ],
   imports: [
     BrowserModule,
