@@ -1,0 +1,42 @@
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #ffffff;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+// override material inline style to allow mini nav state
+mat-sidenav[style] {
+  visibility: visible !important;
+}
+.mat-drawer {
+  transform: none !important;
+}
+
+.content-container {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 25px;
+  left: 75px;
+}
+

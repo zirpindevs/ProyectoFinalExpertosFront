@@ -15,21 +15,28 @@ export class NavComponent implements OnInit {
   }
 
 
+
   mostrarNav(): boolean{
     switch(this.router.url){
       case '/expertos':
         return true;
+      case '/home':
+        return false;
+      case '/login':
+          return false;
+      case '/':
+          return false;
       case '/etiquetas':
         return true;
       case '/expertos/crear':
         return true;
-      case '/etiquetas/crear':
+      case '/etiquetas/**':
         return true;
       case '/expertos/detalles/:id':
         return true;
       default :
         return false;
       }
-    }
+}
 
 }
