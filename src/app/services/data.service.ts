@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import {Expert} from "../models/expert/expert.model"
 import { Etiqueta } from '../models/etiqueta/etiqueta.model';
 
-// const baseURL = 'https://proyectofinal1234.ddns.net:8080/api/expertos';
-const baseURL = 'https://localhost:8080/api/expertos';
+const baseURL = 'https://proyectofinal1234.ddns.net:8080/api/expertos';
+//const baseURL = 'https://localhost:8080/api/expertos';
 
 
 @Injectable({

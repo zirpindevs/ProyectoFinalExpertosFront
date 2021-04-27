@@ -41,6 +41,7 @@ import { TagDialogDeleteComponent } from './pages/tag-dialog-delete/tag-dialog-d
 import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-create-page.component';
 import { RouterModule } from '@angular/router';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { NavComponent } from './pages/nav/nav.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
     TagDialogDeleteComponent,
     ExpertCreatePageComponent,
     NotFoundPageComponent,
+    NavComponent,
     ],
   imports: [
     BrowserModule,

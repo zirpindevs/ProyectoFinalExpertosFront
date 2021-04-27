@@ -1,15 +1,5 @@
-<mat-drawer-container>
-  <mat-drawer mode="side" opened>
-    <div class="sidebar">  <img style="width: 122.03px; height: 30.75px; left: 52; top: 12.33;"
-      src="../assets/experts.png"/>
+<div class="content" role="main">
 
-      <a href="/expertos"><img src="../assets/expert_logo.png"/>Expertos</a>
-
-      <a href="/etiquetas"><img src="../assets/etiqueta_logo.png"/>Etiquetas</a>
-  </div>
-  </mat-drawer>
-  <mat-drawer-content class="content-container">
-    <router-outlet> </router-outlet>
-
-  </mat-drawer-content>
-</mat-drawer-container>
+  <app-nav> *ngif="mostrarNav()"</app-nav>
+  <router-outlet *ngIf="!mostrarNav()"></router-outlet>
+</div>
