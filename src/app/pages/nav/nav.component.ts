@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -9,34 +9,64 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
   [x: string]: any;
 
-  constructor(private router: Router) { }
+  routerUrlEtiqueta: boolean = false;
+  routerUrlExperto: boolean = false;
+
+  constructor(public router: Router, public activatedRoute: ActivatedRoute) {}
+
 
   ngOnInit(): void {
   }
 
+  goToExpertos(){
+  this.router.navigate(['/expertos']);
+  }
 
-
-  mostrarNav(): boolean{
-    switch(this.router.url){
-      case '/expertos':
-        return true;
-      case '/home':
-        return false;
-      case '/login':
-          return false;
-      case '/':
-          return false;
-      case '/etiquetas':
-        return true;
-      case '/expertos/crear':
-        return true;
-      case '/etiquetas/**':
-        return true;
-      case '/expertos/detalles/:id':
-        return true;
-      default :
-        return false;
+  mostrarNav(): boolean {
+    this.router.events.subscribe((e) => {
+      if (e instanceof NavigationEnd) {
+        this.routerUrlExperto = e.url.includes('expertos/');
+        this.routerUrlEtiqueta = e.url.includes('etiquetas/');
       }
-}
+    });
+    if (!this.routerUrlExperto) {
+      switch (this.router.url) {
+        case '/home':
+          return true;
+        case '/expertos':
+          return true;
+          break;
+        case '/etiquetas':
+          return true;
+          break;
+          case '/addexperto':
+            return true;
+            break;
+        case '/expertos/**':
+          return true;
+          break;
+        case '/etiquetas/**':
+          return true;
+          break;
+        case '/login':
+          return false;
+          break;
+        case '/registro':
+          return false;
+          break;
+        default:
+          return false;
+          break;
+      }
+    } else if (this.routerUrlExperto) {
+      return this.routerUrlExperto;
+    } else if (this.routerUrlExperto) {
+      return this.routerUrlEtiqueta;
+    }
+    return false;
+  }
+
+
+
 
 }

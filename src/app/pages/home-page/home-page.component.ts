@@ -15,6 +15,10 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goToExpertos(){
+    this.router.navigate(['/expertos']);
+  }
+
   logout(): void {
     this.authService.setLoggedIn(false);
     sessionStorage.removeItem('Token');

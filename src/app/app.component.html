@@ -1,5 +1,4 @@
 <div class="content" role="main">
-
-  <app-nav> *ngif="mostrarNav()"</app-nav>
-  <router-outlet *ngIf="mostrarNav()"></router-outlet>
+  <app-nav *ngIf="mostrarNav()"></app-nav>
+  <router-outlet *ngIf="!mostrarNav()"></router-outlet>
 </div>
