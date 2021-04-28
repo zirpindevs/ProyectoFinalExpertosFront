@@ -52,7 +52,7 @@ export class TagPageComponent implements OnInit {
 
 
   ngAfterViewInit() {
-    this.etiquetaSource.paginator = this.paginator;
+    //this.etiquetaSource.paginator = this.paginator;
     // this.etiquetaSource.sort = this.sort;
   }
 
@@ -76,7 +76,6 @@ export class TagPageComponent implements OnInit {
   // a través del servicio de DataService
   obtenerLista() {
     this.etiquetaService.findAllTags().subscribe((tags: any)=>{
-      console.log(tags);
       this.tags = tags;
     })
   }
@@ -87,10 +86,9 @@ export class TagPageComponent implements OnInit {
       .subscribe(
         tags => {
           this.tags = tags;
-          console.log(tags);
         },
         error => {
-          console.log(error);
+          this.errorMessage = error;
         });
   }
 
@@ -121,7 +119,6 @@ export class TagPageComponent implements OnInit {
   filtrarNombre(event: Event) {
     const filtro = (event.target as HTMLInputElement).value;
     this.etiquetaSource.filter = filtro.trim().toLowerCase();
-    console.log(this.etiquetaSource.filter);
     this.obtenerListaEtiqueta(this.etiquetaSource.filter);
 
     if (this.etiquetaSource.paginator) {
@@ -137,8 +134,6 @@ export class TagPageComponent implements OnInit {
   // a través del servicio de DataService
   obtenerListaEtiqueta(filter_name :string) {
     this.etiquetaService.findAllTagsWithFilter(filter_name, this.pageSize).subscribe((response)=>{
-      console.log('response received')
-      console.log(response);
       this.tags = response;
 
       //count number of objects
@@ -153,12 +148,10 @@ export class TagPageComponent implements OnInit {
 
     },
     (error) => {                              //error() callback
-      console.error('Request failed with error')
       this.errorMessage = error;
       this.loading = false;
     },
     () => {                                   //complete() callback
-      console.error('Request completed')      //This is actually not needed
       this.loading = false;
     })
   }

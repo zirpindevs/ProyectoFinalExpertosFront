@@ -167,7 +167,6 @@ export class ExpertDetailPageComponent implements OnInit {
         this.pagina = 500;
         this.etiquetaService.findAllTagsWithFilter(this.noName, this.pagina).subscribe((response)=>{
         this.Listatags = response;
-        console.log(this.Listatags);
       },
       (error) => {                              //error() callback
         console.error('Request tag failed with error')

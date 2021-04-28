@@ -55,7 +55,6 @@ export class LoginPageComponent implements OnInit {
       this.authSubscription = this.authService.login(user)
         .subscribe((response) => {
           if(response.token){
-            console.log(`Token: ${response.token}`);
             // Set Token in Session Storage of our Navigator
             sessionStorage.setItem('Token', response.token);
             // We set loggedIn in our Service in order to be able to navigate to Home

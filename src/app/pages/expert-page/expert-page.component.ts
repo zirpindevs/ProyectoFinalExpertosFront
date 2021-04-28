@@ -53,9 +53,10 @@ export class ExpertPageComponent implements OnInit {
 
   page = 1;
   count = 0;
-  pageSizes = [5, 10, 25];
 
-  pageSize = 10;
+  pageSizes:Number[] = [5, 10, 25];
+
+  pageSize = 25;
   pageIndex = 0;
   pageSizeOptions = [5, 10, 15];
   showFirstLastButtons = true;
@@ -68,13 +69,11 @@ export class ExpertPageComponent implements OnInit {
    }
 
   ngOnInit(): void {
-
     this.retrieveExperts();
 
     this.dataSource = new MatTableDataSource(this.experts);
 
-
-  }
+ }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -105,17 +104,15 @@ export class ExpertPageComponent implements OnInit {
 
   retrieveExperts(): void {
     const params = this.getRequestParams(this.experts.nombre, this.experts.estado, this.page, this.pageSize);
-    console.log(params);
     this.dataService.getAll(params)
     .subscribe(
       response => {
         const { experts, totalItems } = response;
         this.experts = experts;
         this.count = totalItems;
-        console.log(response);
       },
       error => {
-        console.log(error);
+        this.errorMessage = error;
       });
   }
 
@@ -140,7 +137,6 @@ export class ExpertPageComponent implements OnInit {
   filtrarNombre(event: Event) {
     const filtro = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filtro.trim().toLowerCase();
-    console.log(this.dataSource.filter);
     this.experts.nombre = this.dataSource.filter;
     this.retrieveExperts();
   }
@@ -149,7 +145,6 @@ export class ExpertPageComponent implements OnInit {
   filtrarEstado(event: Event) {
     const filtro = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filtro.trim().toLowerCase();
-    console.log(this.dataSource.filter);
     this.experts.estado = this.dataSource.filter;
     this.retrieveExperts();
 
@@ -164,10 +159,6 @@ export class ExpertPageComponent implements OnInit {
   // a través del servicio de DataService
   obtenerLista(filter_name :string) {
     this.dataService.findAll(filter_name, this.pageSize).subscribe((response)=>{
-      console.log('response received')
-      console.log(response);
-      console.log(response.currentPage);
-
       this.experts = response.currentPage;
       this.pageSize = response.totalItems;
 
@@ -183,12 +174,10 @@ export class ExpertPageComponent implements OnInit {
 
     },
     (error) => {                              //error() callback
-      console.error('Request failed with error')
       this.errorMessage = error;
       this.loading = false;
     },
     () => {                                   //complete() callback
-      console.error('Request completed')      //This is actually not needed
       this.loading = false;
     })
   }
@@ -196,8 +185,6 @@ export class ExpertPageComponent implements OnInit {
 
   obtenerListaEstado(filter_estado :string) {
     this.dataService.findAllEstado(filter_estado, this.pageSize).subscribe((response)=>{
-      console.log('response received')
-      console.log(response);
       this.experts = response;
 
       //count number of objects
@@ -216,13 +203,11 @@ export class ExpertPageComponent implements OnInit {
       this.loading = false;
     },
     () => {                                   //complete() callback
-      console.error('Request completed')      //This is actually not needed
       this.loading = false;
     })
   }
 
   editContact(expert: Expert) {
-    console.log(this.experts.id);
      let route = '/expertos/:';
      this.router.navigate([route], { queryParams: { id: this.experts.id } });
   }
@@ -232,10 +217,9 @@ export class ExpertPageComponent implements OnInit {
       .subscribe(
         experts => {
           this.experts = experts;
-          console.log(experts);
         },
         error => {
-          console.log(error);
+          this.errorMessage = error;
         });
   }
 
@@ -244,10 +228,9 @@ export class ExpertPageComponent implements OnInit {
       .subscribe(
         experts => {
           this.experts = experts;
-          console.log(experts);
         },
         error => {
-          console.log(error);
+          this.errorMessage = error;
         });
   }
 

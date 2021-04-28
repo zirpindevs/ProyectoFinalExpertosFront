@@ -80,6 +80,9 @@ export class ExpertCreatePageComponent implements OnInit {
     this.experts.observaciones = this.registerForm.value.observaciones;
     this.experts.estadoMotivo = this.registerForm.value.estadoMotivo;
 
+    if(this.experts.nombre != "" && this.experts.telefono != "")
     this.dataService.crearExperto(this.experts);
+    else
+    alert("error nombre y/o telefono sin completasr");
   }
 }

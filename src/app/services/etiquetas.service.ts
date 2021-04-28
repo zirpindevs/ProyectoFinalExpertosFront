@@ -5,7 +5,9 @@ import { Etiqueta } from '../models/etiqueta/etiqueta.model';
 import { Expert } from '../models/expert/expert.model';
 
 
-const baseURLTag = 'https://proyectofinal1234.ddns.net:8080/api/etiquetas';
+// const baseURLTag = 'https://proyectofinal1234.ddns.net:8080/api/etiquetas';
+const baseURLTag = 'https://localhost/api/etiquetas';
+
 const headers = new Headers;
 const body = JSON.stringify(
 {
@@ -48,7 +50,6 @@ deleteTagById(id: number): Observable<any> {
   return new Promise((res, rej) => {
     this.http.delete(baseURLTag, options)
       .subscribe((serverResponse: any) => {
-        console.log(serverResponse);
       });
   });
  }
@@ -67,7 +68,6 @@ deleteTagById(id: number): Observable<any> {
 
 
 crearEtiqueta(name: String): Observable<Etiqueta> {
-  console.log(name);
   return this.http.post<Etiqueta>(baseURLTag, name);
   }
 
