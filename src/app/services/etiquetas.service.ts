@@ -5,8 +5,9 @@ import { Etiqueta } from '../models/etiqueta/etiqueta.model';
 import { Expert } from '../models/expert/expert.model';
 
 
-// const baseURLTag = 'https://proyectofinal1234.ddns.net:8080/api/etiquetas';
-const baseURLTag = 'https://localhost/api/etiquetas';
+//const baseURLTag = 'https://proyectofinal123456.herokuapp.com/api/etiquetas';
+const baseURLTag = 'http://localhost:8080/api/etiquetas';
+
 
 const headers = new Headers;
 const body = JSON.stringify(
