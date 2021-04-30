@@ -56,7 +56,7 @@ export class ExpertPageComponent implements OnInit {
 
   pageSizes:Number[] = [5, 10, 25];
 
-  pageSize = 10;
+  pageSize = 5;
   pageIndex = 0;
   pageSizeOptions = [5, 10, 15];
   showFirstLastButtons = true;
