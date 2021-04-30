@@ -57,9 +57,25 @@ export class ExpertCreatePageComponent implements OnInit {
     });
 
       this.registerForm = this.formBuilder.group({
-      nombre: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
-      telefono: ['', Validators.compose([Validators.required, Validators.minLength(9), Validators.maxLength(12)])]
-      });
+      // nombre: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
+      // telefono: ['', Validators.compose([Validators.required, Validators.minLength(9), Validators.maxLength(12)])]
+      // });
+
+
+
+
+      nombre: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+      nif: [''],
+      disponibilidad: [''],
+      estado: [''],
+      valoracion: [''],
+      telefono: ['', [Validators.required, Validators.pattern('\\d{9}')]],
+      correo: [''],
+      direccion: [''],
+      observaciones: [''],
+      estadoMotivo: ['']
+    });
+
     }
 
 
