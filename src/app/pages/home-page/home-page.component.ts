@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user/user.model';
+import { Subscription } from 'rxjs';
+
 
 
 @Component({
@@ -10,9 +13,13 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  user: any;
+
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   ngOnInit(): void {
+  this.user = localStorage.getItem('userName');
   }
 
   goToExpertos(){

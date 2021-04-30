@@ -11,7 +11,9 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
 
   // Boolean Variable to tell the AuthGuard that the user is Logged In
-  private isLoggedIn: boolean = false
+  private isLoggedIn: boolean = false;
+  private user: User;
+
 
   // We inject Http Client to the constructor of the service
   constructor(private http: HttpClient) { }

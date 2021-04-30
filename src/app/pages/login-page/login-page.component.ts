@@ -22,6 +22,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginPageComponent implements OnInit {
 
  hide = true;
+ private user: User;
 
   // Form Group to contain User Data to Login
   loginForm: FormGroup = new FormGroup({});
@@ -59,6 +60,7 @@ export class LoginPageComponent implements OnInit {
             sessionStorage.setItem('Token', response.token);
             // We set loggedIn in our Service in order to be able to navigate to Home
             this.authService.setLoggedIn(true);
+            localStorage.setItem('userName', this.loginForm.value.username)
             // Navigation to "/Home"
             // In this moment, the AuthGuard will be executed, as we are trying to acces to
             // HomePage that has the canActivate assigned to it
