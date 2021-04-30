@@ -99,6 +99,6 @@ export class ExpertCreatePageComponent implements OnInit {
     if(this.experts.nombre != "" && this.experts.telefono != "")
     this.dataService.crearExperto(this.experts);
     else
-    alert("error nombre y/o telefono sin completasr");
+    alert("error nombre y/o telefono sin completar");
   }
 }
