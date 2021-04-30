@@ -11,6 +11,9 @@ import { EtiquetasService } from 'src/app/services/etiquetas.service';
 })
 export class TagCreatePageComponent implements OnInit {
 
+  tags: any = {
+    name: '',
+  };
   name: string;
   registerForm: FormGroup = new FormGroup({})
 
@@ -33,8 +36,8 @@ export class TagCreatePageComponent implements OnInit {
   }
 
   addEtiqueta() {
-    this.etiquetaService.crearEtiqueta(this.name)
-      .subscribe();
+  this.tags.name = this.name;
+  this.etiquetaService.crearEtiqueta(this.tags);
   }
 
 

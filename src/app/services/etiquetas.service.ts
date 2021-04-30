@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Etiqueta } from '../models/etiqueta/etiqueta.model';
@@ -68,8 +68,19 @@ deleteTagById(id: number): Observable<any> {
 
 
 
-crearEtiqueta(name: String): Observable<Etiqueta> {
-  return this.http.post<Etiqueta>(baseURLTag, name);
+crearEtiqueta(tags: Etiqueta){
+  const headers = new HttpHeaders().append(
+    'Content-Type',
+    'application/json'
+  );
+  return this.http.post<any>(baseURLTag, JSON.stringify(tags),
+    {        headers: headers,
+    })
+    .toPromise()
+    .then(response => response as Etiqueta[])
+    .catch(this.handleError);
+
+  //return this.http.post<Etiqueta>(baseURLTag, name);
   }
 
 
