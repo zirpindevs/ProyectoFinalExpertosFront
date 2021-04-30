@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams, HttpRequest} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpRequest, HttpResponse} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Expert} from "../models/expert/expert.model"
 import { Etiqueta } from '../models/etiqueta/etiqueta.model';
@@ -14,16 +14,7 @@ const baseURL = 'http://localhost:8080/api/expertos';
 export class DataService {
   constructor(private http: HttpClient) { }
 
-    /**
-   * Método para obtener de la API Restful una
-   * lista de expertos que pintar en la pantalla
-   */
-    //  obtenerListaExpertos(): Observable<any> {
-    //    console.log(this.http.get('http://localhost:8080/api/experts'));
-    //   return this.http.get('http://localhost:8080/api/experts');
-    // }
-
-
+ 
 
   getAll(params: any): Observable<any> {
       return this.http.get<any>(baseURL, { params });
@@ -60,7 +51,7 @@ export class DataService {
       return this.http.post<any>(baseURL, expertToCreate,
       {        headers: headers,
       })
-      .subscribe((res) => console.log(res));
+      .subscribe((res) => console.log("user created"));
       }
 
 
@@ -77,7 +68,7 @@ export class DataService {
       return this.http.put<any>(baseURL+'/'+expert.id, body,
       {        headers: headers,
       })
-      .subscribe((res) => console.log(res));
+      .subscribe((res) => console.log("user created"));
       }
 
 
@@ -93,8 +84,8 @@ export class DataService {
         return this.http.put<any>(baseURL+'/'+modifiedExpert.id, modifiedExpert,
         {        headers: headers,
         })
-        .subscribe((res) => console.log(res));
-        }
+        .subscribe((res) => console.log("user modified"));
+      }
 
 
     AddTag(expert: Expert, etiqueta: Etiqueta): Promise<Array<Expert>> {
