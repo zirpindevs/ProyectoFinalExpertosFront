@@ -76,9 +76,7 @@ crearEtiqueta(tags: Etiqueta){
   return this.http.post<any>(baseURLTag, JSON.stringify(tags),
     {        headers: headers,
     })
-    .toPromise()
-    .then(response => response as Etiqueta[])
-    .catch(this.handleError);
+    .subscribe((res) => console.log("etiqueta creada"));
 
   //return this.http.post<Etiqueta>(baseURLTag, name);
   }
