@@ -5,7 +5,7 @@ import { Etiqueta } from '../models/etiqueta/etiqueta.model';
 import { Expert } from '../models/expert/expert.model';
 
 
-const baseURLTag = 'https://161.22.42.73:8080/api/etiquetas';
+const baseURLTag = 'https://proyectofinal123.herokuapp.com/api/etiquetas';
 
 //const baseURLTag = 'http://localhost:8080/api/etiquetas';
 
