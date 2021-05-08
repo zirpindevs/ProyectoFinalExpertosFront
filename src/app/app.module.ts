@@ -42,6 +42,7 @@ import { ExpertCreatePageComponent } from './pages/expert-create-page/expert-cre
 import { RouterModule } from '@angular/router';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { NavComponent } from './pages/nav/nav.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { NavComponent } from './pages/nav/nav.component';
     ExpertCreatePageComponent,
     NotFoundPageComponent,
     NavComponent,
+    RegisterPageComponent,
     ],
   imports: [
     BrowserModule,

@@ -1,0 +1,47 @@
+<h1>
+  Pagina de Registro
+</h1>
+
+<!-- Register Form -->
+
+<h4>Register Form Data:</h4>
+<p>{{ registerForm.value | json }}</p>
+
+<form [formGroup]="registerForm" (submit)="submitRegisterForm()">
+
+  <mat-form-field>
+    <input matInput placeholder="usuario" formControlName="username" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Email" formControlName="email" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Password" formControlName="password" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Nombre" formControlName="first_name" />
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <input matInput placeholder="Apellido" formControlName="last_name" />
+  </mat-form-field>
+
+  <!-- Age number(18-99) -->
+  <mat-form-field>
+    <input type="number" matInput placeholder="Edad" formControlName="age" />
+  </mat-form-field>
+
+  <button [disabled]="registerForm.invalid" mat-raised-button color="primary" type="submit">
+    Registrar nueva cuenta
+  </button>
+
+</form>
+
+<button mat-raised-button color="warning" [routerLink]="['/login']">
+  Login
+</button>
+
