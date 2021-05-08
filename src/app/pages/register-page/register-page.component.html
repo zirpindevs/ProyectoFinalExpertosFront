@@ -1,5 +1,5 @@
 <h1>
-  Pagina de Registro
+  Register Page
 </h1>
 
 <!-- Register Form -->
@@ -10,7 +10,7 @@
 <form [formGroup]="registerForm" (submit)="submitRegisterForm()">
 
   <mat-form-field>
-    <input matInput placeholder="usuario" formControlName="username" />
+    <input matInput placeholder="Username" formControlName="username" />
   </mat-form-field>
 
   <mat-form-field>
@@ -22,26 +22,27 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Nombre" formControlName="first_name" />
+    <input matInput placeholder="First Name" formControlName="first_name" />
   </mat-form-field>
 
 
   <mat-form-field>
-    <input matInput placeholder="Apellido" formControlName="last_name" />
+    <input matInput placeholder="Last Name" formControlName="last_name" />
   </mat-form-field>
 
   <!-- Age number(18-99) -->
   <mat-form-field>
-    <input type="number" matInput placeholder="Edad" formControlName="age" />
+    <input type="number" matInput placeholder="Age" formControlName="age" />
   </mat-form-field>
 
+
   <button [disabled]="registerForm.invalid" mat-raised-button color="primary" type="submit">
-    Registrar nueva cuenta
+    Register New Account
   </button>
 
 </form>
 
 <button mat-raised-button color="warning" [routerLink]="['/login']">
-  Login
+  Login to my account
 </button>
 

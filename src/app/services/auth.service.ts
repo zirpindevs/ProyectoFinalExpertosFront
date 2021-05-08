@@ -5,6 +5,9 @@ import { User } from '../models/user/user.model';
 // We import HTTP Client to perform HTTP Requests
 import { HttpClient } from '@angular/common/http';
 
+const apiUser = 'http://localhost:8080/api/users';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -60,5 +63,11 @@ export class AuthService {
   setLoggedIn(value: boolean) {
     this.isLoggedIn = value;
   }
+
+  // Registro
+  registro(user: User) {
+    return this.http.post(apiUser, user);
+  }
+
 
 }
