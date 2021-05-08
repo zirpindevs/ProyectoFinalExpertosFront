@@ -45,10 +45,10 @@ export class AuthService {
    * @param user User
    * @reurn Observable<any>
    */
-  login(user: User): Observable<any> {
+  login(email: string, password: string): Observable<any> {
     let body = {
-      email: user.email,
-      password: user.password,
+      email: email,
+      password: password,
     };
     //return this.http.post('https://proyectofinal1234.ddns.net:8080/api/users', body)
    return this.http.post('https://reqres.in/api/login', body)

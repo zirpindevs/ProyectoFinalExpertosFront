@@ -53,7 +53,7 @@ export class LoginPageComponent implements OnInit {
       // console.table(user);
 
       // We call the Auth Service to login the user
-      this.authSubscription = this.authService.login(user)
+      this.authSubscription = this.authService.login(user.email, user.password)
         .subscribe((response) => {
           if(response.token){
             // Set Token in Session Storage of our Navigator
