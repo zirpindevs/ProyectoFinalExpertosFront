@@ -112,6 +112,7 @@ export class ExpertDetailPageComponent implements OnInit {
     // Evento capturado en el Hijo que emite hacia el Padre
     // Enviará al padre, el contacto para que actualice datos
     actualizarDatosUsuario() {
+      this.expert.id = this.idExpert;
       this.expert.nombre = this.registerForm.value.nombre;
       this.expert.nif = this.registerForm.value.nif;
       this.expert.disponibilidad = this.registerForm.value.disponibilidad;
