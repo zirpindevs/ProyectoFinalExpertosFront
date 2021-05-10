@@ -91,7 +91,7 @@ export class DataService {
       const params = new HttpParams()
         .append('id', String(modifiedExpert.id));
 
-        return this.http.put<any>(baseURL+'/'+modifiedExpert.id, modifiedExpert,
+        return this.http.put<any>(baseURL, modifiedExpert,
         {        headers: headers,
         })
         .subscribe((res) => console.log(res));
