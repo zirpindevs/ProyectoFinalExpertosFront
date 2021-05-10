@@ -46,9 +46,9 @@ export class AuthService {
     let body = {
       email: user.email,
       password: user.password,
-    };
-    //return this.http.post('https://proyectofinal1234.ddns.net:8080/api/users', body)
-   return this.http.post('https://reqres.in/api/login', body)
+    }
+    //return this.http.post('https://proyectofinal123.herokuapp.com/api/users', body)
+   return this.http.post('http://localhost:8080/api/users', body)
 
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 // Angular Router for navigation
 import { Router } from '@angular/router';
@@ -14,6 +14,7 @@ import { User } from 'src/app/models/user/user.model';
 
 // Services:
 import { AuthService } from 'src/app/services/auth.service';
+
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -26,6 +27,7 @@ export class LoginPageComponent implements OnInit {
 
   // Form Group to contain User Data to Login
   loginForm: FormGroup = new FormGroup({});
+
   // AuthSubscription
   authSubscription: Subscription = new Subscription();
 
@@ -42,7 +44,6 @@ export class LoginPageComponent implements OnInit {
 
   }
 
-
   login(): void {
 
     // We verify the LRegisterForm is Valid and we can access to username and password
@@ -53,9 +54,9 @@ export class LoginPageComponent implements OnInit {
       // console.table(user);
 
       // We call the Auth Service to login the user
-      this.authSubscription = this.authService.login(user)
+     this.authService.login(new User(this.loginForm.value.username, this.loginForm.value.password))
         .subscribe((response) => {
-          if(response.token){
+          if(response.response.response == 'OK'){
             // Set Token in Session Storage of our Navigator
             sessionStorage.setItem('Token', response.token);
             // We set loggedIn in our Service in order to be able to navigate to Home
@@ -75,6 +76,7 @@ export class LoginPageComponent implements OnInit {
       this.authService.setLoggedIn(false);
       alert('You must provide a username and a valid password')
     }
+
   }
 
   // We ensure our subscription disappears with the LoginComponent
