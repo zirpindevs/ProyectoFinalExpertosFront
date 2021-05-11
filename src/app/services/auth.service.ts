@@ -61,4 +61,7 @@ export class AuthService {
     this.isLoggedIn = value;
   }
 
+  registro(user: User) {
+    return this.http.post('https://proyectofinal1234.ddns.net:8080/api/users/create', user);
+   }
 }
