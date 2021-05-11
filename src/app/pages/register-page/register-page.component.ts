@@ -39,7 +39,7 @@ export class RegisterPageComponent implements OnInit {
       return;
      }
 
-    this.user.email = this.f.username.value;
+    this.user.email = this.f.email.value;
     this.user.password = this.f.password.value;
     this.loading = true;
     this.authService.registro(this.user)
