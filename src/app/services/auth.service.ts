@@ -62,6 +62,12 @@ export class AuthService {
   }
 
   registro(user: User) {
-    return this.http.post('https://proyectofinal1234.ddns.net:8080/api/users/create', user);
+    let body = {
+      email: user.email,
+      password: user.password,
+    }
+  //  return this.http.post('http://localhost:8080/api/users/create', body)
+
+    return this.http.post('https://proyectofinal1234.ddns.net:8080/api/users/create', body);
    }
 }
