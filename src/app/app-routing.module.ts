@@ -9,6 +9,7 @@ import { TagCreatePageComponent } from './pages/tag-create-page/tag-create-page.
 import { TagPageComponent } from './pages/tag-page/tag-page.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'login', // http:localhost:4200/login
     component: LoginPageComponent
+  },
+  {
+    path: 'registro', // http:localhost:4200/login
+    component: RegisterPageComponent
   },
   {
     path: 'expertos',  // http:localhost:4200/expertos
