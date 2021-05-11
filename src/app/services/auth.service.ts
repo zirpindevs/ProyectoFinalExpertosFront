@@ -47,8 +47,8 @@ export class AuthService {
       email: user.email,
       password: user.password,
     }
-    //return this.http.post('https://proyectofinal123.herokuapp.com/api/users', body)
-   return this.http.post('http://localhost:8080/api/users', body)
+    return this.http.post('https://proyectofinal123.herokuapp.com/api/users', body)
+//    return this.http.post('http://localhost:8080/api/auth/login', body)
 
   }
 

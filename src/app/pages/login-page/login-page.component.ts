@@ -57,6 +57,8 @@ export class LoginPageComponent implements OnInit {
      this.authService.login(new User(this.loginForm.value.username, this.loginForm.value.password))
         .subscribe((response) => {
           if(response.response.response == 'OK'){
+          // if(response.token){
+          // if(response.response.response == 'OK'){
             // Set Token in Session Storage of our Navigator
             sessionStorage.setItem('Token', response.token);
             // We set loggedIn in our Service in order to be able to navigate to Home
