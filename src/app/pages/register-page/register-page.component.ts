@@ -45,14 +45,16 @@ export class RegisterPageComponent implements OnInit {
     this.user.email = this.f.email.value;
     this.user.password = this.f.password.value;
     this.loading = true;
-    this.authService.registro(this.user)
-    .pipe(first())
-    .subscribe({
-      next: () => { // get return url from query parameters or default to home page
-         const returnUrl = this.route.snapshot.queryParams['login'] || '/';
-          this.router.navigateByUrl(returnUrl); },
-          error: (error: any) => {
-            this.loading = false;
-     } });
-    }
-   }
+
+    this.authService.registro(new User(this.registerForm.value.email, this.registerForm.value.password))
+    .subscribe((response) => {
+      if(response.response.response == 'OK'){
+
+        this.router.navigate(['/login']);
+
+      }
+    });
+
+
+  }
+ }
