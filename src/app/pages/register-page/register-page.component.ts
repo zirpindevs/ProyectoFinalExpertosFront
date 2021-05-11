@@ -14,7 +14,10 @@ export class RegisterPageComponent implements OnInit {
   submitted = false;
   registerForm: FormGroup = new FormGroup({})
 
-  user: User;
+  user: any = {
+    email: '',
+    password: ''
+  }
 
  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService, private route: ActivatedRoute) { }
 
