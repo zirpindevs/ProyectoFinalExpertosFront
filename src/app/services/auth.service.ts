@@ -66,8 +66,8 @@ export class AuthService {
       email: user.email,
       password: user.password,
     }
-  //  return this.http.post('http://localhost:8080/api/users/create', body)
+   return this.http.post('http://localhost:8080/api/users/create', body)
 
-     return this.http.post('https://proyectofinal1234.ddns.net:8080/api/users/create', user);
+    //  return this.http.post('https://proyectofinal1234.ddns.net:8080/api/users/create', user);
    }
 }

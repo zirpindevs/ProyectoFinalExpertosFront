@@ -48,10 +48,12 @@ export class RegisterPageComponent implements OnInit {
 
     this.authService.registro(new User(this.registerForm.value.email, this.registerForm.value.password))
     .subscribe((response) => {
-      if(response.response.response == 'OK'){
-
+      if(response != null ){
+        console.log("user create")
         this.router.navigate(['/login']);
-
+      }
+      else{
+        alert('Error creating user');
       }
     });
 
